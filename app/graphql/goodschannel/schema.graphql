@@ -1,0 +1,36 @@
+# 查询模型 Goodschannel 的类型对象
+type Goodschannel{
+	id: ID, # 编号
+	seller_id: String, # 商家编号
+	title: String, # 频道名称
+	school_id: Int, # 学校ID
+	priority: Int, # 优先级
+	created: Datetime, # 
+	gcount: Int, # 商品数量(聚合查询)
+}
+
+# 用于查询模型 Goodschannel 的方法，继承自 Query。
+extend type Query{
+	goodschannel(id: ID): Goodschannel,  # 根据ID查询单个 Goodschannel 对象
+	goodschannelAll(
+		school_id: Int, # 分页对象
+	): [Goodschannel],  # 查询全部 Goodschannel 对象
+}
+
+# 更改模型 Goodschannel 的 input 输入对象
+input GoodschannelInput{
+	id: ID, # 编号
+	seller_id: String, # 商家编号
+	title: String, # 频道名称
+	school_id: Int, # 学校ID
+	priority: Int, # 优先级
+	created: Datetime, # 
+}
+
+# 用于更改模型 Goodschannel 的方法，继承自 Mutation。
+extend type Mutation{
+	addGoodschannel(goodschannel: GoodschannelInput): Goodschannel!, # 新增
+	updateGoodschannel(goodschannel: GoodschannelInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeGoodschannel(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

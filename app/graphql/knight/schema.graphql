@@ -1,0 +1,60 @@
+# 查询模型 Knight 的类型对象
+type Knight{
+	id: ID, # 编号
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 昵称(通常是微信昵称)
+	realname: String, # 真实姓名
+	person_id: String, # 身份证号
+	telephone: String, # 联系方式
+	logo_url: String, # 头像
+	school_id: Int, # 骑手对应的学校id
+	gender: Int, # 1男神 0女神
+	struts: Int, # 状态（0 未审核  1 已审核）
+	created: Datetime, # 
+	dorm_id: String, # 宿舍ID
+	dormitory: Dormitory, # 宿舍信息
+	kcount: Int, # 参与活动的数目(理想值: 0 或 1)
+	drom_name: String,
+	drom_num: Int,
+}
+
+# 用于查询模型 Knight 的方法，继承自 Query。
+extend type Query{
+	knight(id: ID): Knight,  # 根据ID查询单个 Knight 对象
+	knightAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: KnightInput, # 骑士查询条件
+	): [Knight],  # 查询全部 Knight 对象
+	# 根据条件筛选查询爆款活动的骑士
+	screenRushKnightAll(
+		where: KnightInput, # 骑士查询条件
+	): [Knight],
+}
+
+# 更改模型 Knight 的 input 输入对象
+input KnightInput{
+	id: ID, # 编号
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 昵称(通常是微信昵称)
+	realname: String, # 真实姓名
+	person_id: String, # 身份证号
+	telephone: String, # 联系方式
+	logo_url: String, # 头像
+	school_id: Int, # 骑手对应的学校id
+	gender: Int, # 1男神 0女神
+	struts: Int, # 状态（0 未审核  1 已审核）
+	created: Datetime, # 
+	dorm_id: String, # 宿舍ID
+	activity_id: String, # 爆款活动ID, 关联爆款活动表
+}
+
+# 用于更改模型 Knight 的方法，继承自 Mutation。
+extend type Mutation{
+	addKnight(knight: KnightInput): Knight!, # 新增
+	updateKnight(knight: KnightInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeKnight(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

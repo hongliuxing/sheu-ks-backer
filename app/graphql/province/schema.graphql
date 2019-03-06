@@ -1,0 +1,30 @@
+# 查询模型 Province 的类型对象
+type Province{
+	id: ID, # 
+	code: String, # 
+	name: String, # 
+}
+
+# 用于查询模型 Province 的方法，继承自 Query。
+extend type Query{
+	province(id: ID): Province,  # 根据ID查询单个 Province 对象
+	provinceAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Province],  # 查询全部 Province 对象
+}
+
+# 更改模型 Province 的 input 输入对象
+input ProvinceInput{
+	id: ID, # 
+	code: String, # 
+	name: String, # 
+}
+
+# 用于更改模型 Province 的方法，继承自 Mutation。
+extend type Mutation{
+	addProvince(province: ProvinceInput): Province!, # 新增
+	updateProvince(province: ProvinceInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeProvince(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

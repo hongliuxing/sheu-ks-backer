@@ -1,0 +1,20 @@
+enum OrderType{
+  ASC, DESC
+}
+# 分页对象
+input Page{
+  index: Int = 1, # 索引，不得小于 1
+  limit: Int = 20, # 总查询数量，小于等于 0 则使用默认值
+}
+# 排序对象
+input OrderEntry{
+  key: String!, sort: OrderType!, model: String
+}
+
+type Node{
+  code: String,
+}
+
+type Query {
+  node: Node,
+}

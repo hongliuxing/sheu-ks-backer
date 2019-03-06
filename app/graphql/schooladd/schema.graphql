@@ -1,0 +1,36 @@
+# 查询模型 Schooladd 的类型对象
+type Schooladd{
+	id: ID, # 
+	type: String, # 类型
+	province: String, # 省
+	city: String, # 市
+	district: String, # 区
+	name: String, # 名字
+}
+
+# 用于查询模型 Schooladd 的方法，继承自 Query。
+extend type Query{
+	schooladd(id: ID): Schooladd,  # 根据ID查询单个 Schooladd 对象
+	schooladdAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Schooladd],  # 查询全部 Schooladd 对象
+}
+
+# 更改模型 Schooladd 的 input 输入对象
+input SchooladdInput{
+	id: ID, # 
+	type: String, # 类型
+	province: String, # 省
+	city: String, # 市
+	district: String, # 区
+	name: String, # 名字
+}
+
+# 用于更改模型 Schooladd 的方法，继承自 Mutation。
+extend type Mutation{
+	addSchooladd(schooladd: SchooladdInput): Schooladd!, # 新增
+	updateSchooladd(schooladd: SchooladdInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeSchooladd(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

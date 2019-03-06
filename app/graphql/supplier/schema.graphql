@@ -1,0 +1,63 @@
+# 查询模型 Supplier 的类型对象
+type Supplier{
+	id: ID, # 供应商id
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 供应商昵称
+	realname: String, # 真实姓名(选填)
+	phone_num: String, # 供应商电话
+	type: String, # 供应商类型
+	sex: Int, # 供应商性别，0表示小哥哥，1表示小姐姐
+	logo_url: String, # 头像(默认获取微信头像url)
+	notice: String, # 公告
+	business_status: Int, # 1营业中，0打烊中
+	business_start: String, # 开始营业时间
+	business_end: String, # 结束营业时间
+	express_fee: Int, # 配送费
+	min_amount: Int, # 配送金额
+	school_id: Int, # 学校id
+	createAt: Datetime, # 创建日期
+	address: String, # 详细地址, 这里主要用于宿舍号
+	dormitorysupplierrelation: Dormitorysupplierrelation,
+}
+
+# 用于查询模型 Supplier 的方法，继承自 Query。
+extend type Query{
+	supplier(id: ID): Supplier,  # 根据ID查询单个 Supplier 对象
+	supplierAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: SupplierInput, # 供应商查询条件
+	): [Supplier],  # 查询全部 Supplier 对象
+}
+
+# 更改模型 Supplier 的 input 输入对象
+input SupplierInput{
+	id: ID, # 供应商id
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 供应商昵称
+	realname: String, # 真实姓名(选填)
+	phone_num: String, # 供应商电话
+	type: String, # 供应商类型
+	sex: Int, # 供应商性别，0表示小哥哥，1表示小姐姐
+	logo_url: String, # 头像(默认获取微信头像url)
+	notice: String, # 公告
+	business_status: Int, # 1营业中，0打烊中
+	business_start: String, # 开始营业时间
+	business_end: String, # 结束营业时间
+	express_fee: Int, # 配送费
+	min_amount: Int, # 配送金额
+	school_id: Int, # 学校id
+	createAt: Datetime, # 创建日期
+	address: String, # 详细地址, 这里主要用于宿舍号
+	dormitorysupplierrelation: DormitorysupplierrelationInput, # 供应商-宿舍-关联的修改
+}
+
+# 用于更改模型 Supplier 的方法，继承自 Mutation。
+extend type Mutation{
+	addSupplier(supplier: SupplierInput): Supplier!, # 新增
+	updateSupplier(supplier: SupplierInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeSupplier(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

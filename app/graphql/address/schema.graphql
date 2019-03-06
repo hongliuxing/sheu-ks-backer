@@ -1,0 +1,46 @@
+# 查询模型 Address 的类型对象
+type Address{
+	id: ID, # 编号(ObjectId)
+	school_id: Int, # 学校编号(ObjectId)
+	author_id: String, # 作者编号,默认显示作者信息,可更改(ObjectId)
+	dorm_id: String, # 宿舍ID
+	realname: String, # 姓名
+	gender: Int, # 1小哥哥 0小姐姐
+	mobile: String, # 手机
+	school_area: String, # 学校区域(可自定义,宿舍、图书馆、公园、教室、居民楼等)
+	detail: String, # 详细地址
+	is_default: Int, # 是否是默认地址( 0 不是, 1 是默认地址)
+	created: Datetime, # 
+}
+
+# 用于查询模型 Address 的方法，继承自 Query。
+extend type Query{
+	address(id: ID): Address,  # 根据ID查询单个 Address 对象
+	addressAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Address],  # 查询全部 Address 对象
+}
+
+# 更改模型 Address 的 input 输入对象
+input AddressInput{
+	id: ID, # 编号(ObjectId)
+	school_id: Int, # 学校编号(ObjectId)
+	author_id: String, # 作者编号,默认显示作者信息,可更改(ObjectId)
+	dorm_id: String, # 宿舍ID
+	realname: String, # 姓名
+	gender: Int, # 1小哥哥 0小姐姐
+	mobile: String, # 手机
+	school_area: String, # 学校区域(可自定义,宿舍、图书馆、公园、教室、居民楼等)
+	detail: String, # 详细地址
+	is_default: Int, # 是否是默认地址( 0 不是, 1 是默认地址)
+	created: Datetime, # 
+}
+
+# 用于更改模型 Address 的方法，继承自 Mutation。
+extend type Mutation{
+	addAddress(address: AddressInput): Address!, # 新增
+	updateAddress(address: AddressInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeAddress(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

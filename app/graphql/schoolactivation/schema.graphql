@@ -1,0 +1,30 @@
+# 查询模型 Schoolactivation 的类型对象
+type Schoolactivation{
+	id: ID, # 主键id
+	school_id: Int, # 外键，学校id，关联学校表
+	state: Int, # 激活状态，0：已激活，1：待激活
+}
+
+# 用于查询模型 Schoolactivation 的方法，继承自 Query。
+extend type Query{
+	schoolactivation(id: ID): Schoolactivation,  # 根据ID查询单个 Schoolactivation 对象
+	schoolactivationAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Schoolactivation],  # 查询全部 Schoolactivation 对象
+}
+
+# 更改模型 Schoolactivation 的 input 输入对象
+input SchoolactivationInput{
+	id: ID, # 主键id
+	school_id: Int, # 外键，学校id，关联学校表
+	state: Int, # 激活状态，0：已激活，1：待激活
+}
+
+# 用于更改模型 Schoolactivation 的方法，继承自 Mutation。
+extend type Mutation{
+	addSchoolactivation(schoolactivation: SchoolactivationInput): Schoolactivation!, # 新增
+	updateSchoolactivation(schoolactivation: SchoolactivationInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeSchoolactivation(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

@@ -1,0 +1,50 @@
+# 查询模型 RushActivity 的类型对象
+type RushActivity{
+	id: ID, # ID
+	school_id: Int, # 所在学校
+	partner_id: String, # 创建活动的合伙人
+	title: String, # 活动名称
+	logo_url: String, # 活动图片
+	struts_show: Int, # 活动显示状态(0禁止 1显示)
+	begin_show: Date, # 活动开始显示时间
+	end_show: Date, # 活动结束显示时间
+	begin_rush: Datetime, # 抢购开始时间
+	end_rush: Datetime, # 抢购结束时间
+	createAt: Datetime, # 创建时间
+	kcount: Int, # 骑士数量
+	gcount: Int, # 商品数量
+}
+
+# 用于查询模型 RushActivity 的方法，继承自 Query。
+extend type Query{
+	rushActivity(id: ID): RushActivity,  # 根据ID查询单个 RushActivity 对象
+	rushActivityAll(
+		school_id: Int, # 学校ID
+		struts_show: Int, # 显示状态(0 禁止, 1显示)
+	): [RushActivity],  # 查询全部 RushActivity 对象
+}
+
+# 更改模型 RushActivity 的 input 输入对象
+input RushActivityInput{
+	id: ID, # ID
+	school_id: Int, # 所在学校
+	partner_id: String, # 创建活动的合伙人
+	title: String, # 活动名称
+	logo_url: String, # 活动图片
+	struts_show: Int, # 活动显示状态(0禁止 1显示)
+	begin_show: Date, # 活动开始显示时间
+	end_show: Date, # 活动结束显示时间
+	begin_rush: Datetime, # 抢购开始时间
+	end_rush: Datetime, # 抢购结束时间
+	createAt: Datetime, # 创建时间
+	kcount: Int, # 骑士数量
+	gcount: Int, # 商品数量
+}
+
+# 用于更改模型 RushActivity 的方法，继承自 Mutation。
+extend type Mutation{
+	addRushActivity(rushActivity: RushActivityInput): RushActivity!, # 新增
+	updateRushActivity(rushActivity: RushActivityInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeRushActivity(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

@@ -1,0 +1,18 @@
+input SgradeInput{ # 测试用
+    id: ID
+}
+
+type MessageUpdate{
+    err: Int, # 错误代码，无错误时是 null
+    msg: String, # 系统错误统一描述
+    desc: String, # 错误详情（通常是函数级描述）
+    info: Int, # 影响行数 (-1错误, 0无影响, 1> 影响 1>行)
+}
+
+type NodeMutation{
+  code: String,
+}
+
+type Mutation {
+    nodeMutation: NodeMutation,
+}

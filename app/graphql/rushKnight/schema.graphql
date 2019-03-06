@@ -1,0 +1,41 @@
+# 查询模型 RushKnight 的类型对象
+type RushKnight{
+	id: ID, # ID
+	activity_id: String, # 活动ID
+	knight_id: String, # 骑士ID
+	predict_order_count: Int, # 预计订单量(分单量)
+	done_order_count: Int, # 实际完成订单量
+	goods_stat: String, # 商品分配配置(JSON)
+	createAt: Datetime, # 创建时间
+	knight: Knight, # 关联的骑士数据
+}
+
+# 用于查询模型 RushKnight 的方法，继承自 Query。
+extend type Query{
+	rushKnight(id: ID): RushKnight,  # 根据ID查询单个 RushKnight 对象
+	rushKnightAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: RushKnightInput, # 查询条件
+	): [RushKnight],  # 查询全部 RushKnight 对象
+}
+
+# 更改模型 RushKnight 的 input 输入对象
+input RushKnightInput{
+	id: ID, # ID
+	activity_id: String, # 活动ID
+	knight_id: String, # 骑士ID
+	predict_order_count: Int, # 预计订单量(分单量)
+	done_order_count: Int, # 实际完成订单量
+	goods_stat: String, # 商品分配配置(JSON)
+	createAt: Datetime, # 创建时间
+}
+
+# 用于更改模型 RushKnight 的方法，继承自 Mutation。
+extend type Mutation{
+	addRushKnight(rushKnight: RushKnightInput): RushKnight!, # 新增
+	updateRushKnight(rushKnight: RushKnightInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeRushKnight(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+	changePart(knight_id: String, activity_id: String, exec: Boolean): MessageUpdate!, # 修改当前骑士对于活动的参与
+}
+

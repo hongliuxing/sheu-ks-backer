@@ -1,0 +1,74 @@
+# 查询模型 Order 的类型对象
+type Order{
+	id: ID, # 编号
+	client_id: String, # 客户编号
+	seller_id: String, # 商家编号
+	knight_id: String, # 骑士编号
+	address: String, # 地址序列化信息
+	short_num: String, # 短单号
+	out_trade_no: String, # 商户订单号(长度不超过128位)
+	device: String, # 设备(小程序使用"xcx")
+	type: Int, # 订单类型，1餐饮，2零食
+	spbill_create_ip: String, # APP和网页支付提交用户端ip，Native支付填调用微信支付API的机器IP
+	gift_fee: Int, # 礼券抵消金额(单位是"分")
+	discount_fee: Int, # 折扣抵消金额(单位是"分")
+	express_fee: Int, # 配送费(单位是"分")
+	total_fee: Int, # 订单总金额(单位是"分")
+	goods_detail: String, # 备注详情(预售订单创建之后,只有备注可修改)
+	remark: String, # 备注详情(预售订单创建之后,只有备注可修改)
+	created: Datetime, # 
+	school_id: Int, # 
+	realname: String, # 
+	gender: Int, # 
+	mobile: String, # 
+	school_area: String, # 
+	detail: String, # 
+	dorm_id: String, # 宿舍ID
+	rush_activity_id: String, # 爆款活动ID
+}
+
+# 用于查询模型 Order 的方法，继承自 Query。
+extend type Query{
+	order(id: ID): Order,  # 根据ID查询单个 Order 对象
+	orderAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Order],  # 查询全部 Order 对象
+}
+
+# 更改模型 Order 的 input 输入对象
+input OrderInput{
+	id: ID, # 编号
+	client_id: String, # 客户编号
+	seller_id: String, # 商家编号
+	knight_id: String, # 骑士编号
+	address: String, # 地址序列化信息
+	short_num: String, # 短单号
+	out_trade_no: String, # 商户订单号(长度不超过128位)
+	device: String, # 设备(小程序使用"xcx")
+	type: Int, # 订单类型，1餐饮，2零食
+	spbill_create_ip: String, # APP和网页支付提交用户端ip，Native支付填调用微信支付API的机器IP
+	gift_fee: Int, # 礼券抵消金额(单位是"分")
+	discount_fee: Int, # 折扣抵消金额(单位是"分")
+	express_fee: Int, # 配送费(单位是"分")
+	total_fee: Int, # 订单总金额(单位是"分")
+	goods_detail: String, # 备注详情(预售订单创建之后,只有备注可修改)
+	remark: String, # 备注详情(预售订单创建之后,只有备注可修改)
+	created: Datetime, # 
+	school_id: Int, # 
+	realname: String, # 
+	gender: Int, # 
+	mobile: String, # 
+	school_area: String, # 
+	detail: String, # 
+	dorm_id: String, # 宿舍ID
+	rush_activity_id: String, # 爆款活动ID
+}
+
+# 用于更改模型 Order 的方法，继承自 Mutation。
+extend type Mutation{
+	addOrder(order: OrderInput): Order!, # 新增
+	updateOrder(order: OrderInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeOrder(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

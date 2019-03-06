@@ -1,0 +1,52 @@
+# 查询模型 Applyforseller 的类型对象
+type Applyforseller{
+	id: ID, # 编号
+	school_id: String, # 学校编号
+	seller_admin_id: String, # 商家负责人编号(ObjectId)
+	partner_id: String, # (校园)审核人编号(ObjectId)
+	btype: String, # 营业类型名称( 个体运营商/其他经营模式 )
+	sellerName: String, # 商铺名称
+	sellerType: String, # 商铺类型(餐饮/零售)
+	legal_person: String, # 法人
+	telephone: String, # 联系方式
+	license_url: String, # 营业执照url
+	struts: Int, # 状态（0 未审核  1 已审核  -1 已拒绝）
+	reject_reason: String, # 拒绝理由
+	apply_time: Datetime, # 申请时间
+	check_time: Datetime, # 审核时间
+}
+
+# 用于查询模型 Applyforseller 的方法，继承自 Query。
+extend type Query{
+	applyforseller(id: ID): Applyforseller,  # 根据ID查询单个 Applyforseller 对象
+	applyforsellerAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Applyforseller],  # 查询全部 Applyforseller 对象
+}
+
+# 更改模型 Applyforseller 的 input 输入对象
+input ApplyforsellerInput{
+	id: ID, # 编号
+	school_id: String, # 学校编号
+	seller_admin_id: String, # 商家负责人编号(ObjectId)
+	partner_id: String, # (校园)审核人编号(ObjectId)
+	btype: String, # 营业类型名称( 个体运营商/其他经营模式 )
+	sellerName: String, # 商铺名称
+	sellerType: String, # 商铺类型(餐饮/零售)
+	legal_person: String, # 法人
+	telephone: String, # 联系方式
+	license_url: String, # 营业执照url
+	struts: Int, # 状态（0 未审核  1 已审核  -1 已拒绝）
+	reject_reason: String, # 拒绝理由
+	apply_time: Datetime, # 申请时间
+	check_time: Datetime, # 审核时间
+}
+
+# 用于更改模型 Applyforseller 的方法，继承自 Mutation。
+extend type Mutation{
+	addApplyforseller(applyforseller: ApplyforsellerInput): Applyforseller!, # 新增
+	updateApplyforseller(applyforseller: ApplyforsellerInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeApplyforseller(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

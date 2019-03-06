@@ -1,0 +1,59 @@
+# 查询模型 Seller 的类型对象
+type Seller{
+	id: ID, # 编号
+	openid: String, # openid
+	business_id: String, # 营业类型编号
+	seller_admin_id: String, # 商家负责人编号
+	title: String, # 店名
+	logo_url: String, # 头像
+	telephone: String, # 联系电话
+	address: String, # 地址
+	notice: String, # 公告
+	business_status: Int, # 1营业中，0打烊中
+	business_start: String, # 开始营业时间
+	business_end: String, # 结束营业时间
+	express_fee: Int, # 配送费
+	min_amount: Int, # 配送金额
+	struts: Int, # 状态，
+	created: Datetime, # 
+	school_id: Int, # 学校id
+}
+
+# 用于查询模型 Seller 的方法，继承自 Query。
+extend type Query{
+	seller(id: ID): Seller,  # 根据ID查询单个 Seller 对象
+	sellerAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: SellerInput, # 查询条件
+	): [Seller],  # 查询全部 Seller 对象
+}
+
+# 更改模型 Seller 的 input 输入对象
+input SellerInput{
+	id: ID, # 编号
+	openid: String, # openid
+	business_id: String, # 营业类型编号
+	seller_admin_id: String, # 商家负责人编号
+	title: String, # 店名
+	logo_url: String, # 头像
+	telephone: String, # 联系电话
+	address: String, # 地址
+	notice: String, # 公告
+	business_status: Int, # 1营业中，0打烊中
+	business_start: String, # 开始营业时间
+	business_end: String, # 结束营业时间
+	express_fee: Int, # 配送费
+	min_amount: Int, # 配送金额
+	struts: Int, # 状态，
+	created: Datetime, # 
+	school_id: Int, # 学校id
+}
+
+# 用于更改模型 Seller 的方法，继承自 Mutation。
+extend type Mutation{
+	addSeller(seller: SellerInput): Seller!, # 新增
+	updateSeller(seller: SellerInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeSeller(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

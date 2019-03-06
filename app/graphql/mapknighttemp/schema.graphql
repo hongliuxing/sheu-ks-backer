@@ -1,0 +1,36 @@
+# 查询模型 Mapknighttemp 的类型对象
+type Mapknighttemp{
+	id: ID, # 编号
+	knight_id: String, # 骑士ID,不重复(ObjectId)
+	latitude: String, # 纬度，范围为-90~90，负数表示南纬。使用 gcj02 国测局坐标系
+	longitude: String, # 经度，范围为-180~180，负数表示西经。使用 gcj02 国测局坐标系
+	created: Datetime, # 
+	modify_time: Datetime, # 数据修改时间(乐观锁)
+}
+
+# 用于查询模型 Mapknighttemp 的方法，继承自 Query。
+extend type Query{
+	mapknighttemp(id: ID): Mapknighttemp,  # 根据ID查询单个 Mapknighttemp 对象
+	mapknighttempAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Mapknighttemp],  # 查询全部 Mapknighttemp 对象
+}
+
+# 更改模型 Mapknighttemp 的 input 输入对象
+input MapknighttempInput{
+	id: ID, # 编号
+	knight_id: String, # 骑士ID,不重复(ObjectId)
+	latitude: String, # 纬度，范围为-90~90，负数表示南纬。使用 gcj02 国测局坐标系
+	longitude: String, # 经度，范围为-180~180，负数表示西经。使用 gcj02 国测局坐标系
+	created: Datetime, # 
+	modify_time: Datetime, # 数据修改时间(乐观锁)
+}
+
+# 用于更改模型 Mapknighttemp 的方法，继承自 Mutation。
+extend type Mutation{
+	addMapknighttemp(mapknighttemp: MapknighttempInput): Mapknighttemp!, # 新增
+	updateMapknighttemp(mapknighttemp: MapknighttempInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeMapknighttemp(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

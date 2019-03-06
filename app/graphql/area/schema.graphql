@@ -1,0 +1,32 @@
+# 查询模型 Area 的类型对象
+type Area{
+	id: ID, # 
+	code: String, # 
+	name: String, # 
+	citycode: String, # 
+}
+
+# 用于查询模型 Area 的方法，继承自 Query。
+extend type Query{
+	area(id: ID): Area,  # 根据ID查询单个 Area 对象
+	areaAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Area],  # 查询全部 Area 对象
+}
+
+# 更改模型 Area 的 input 输入对象
+input AreaInput{
+	id: ID, # 
+	code: String, # 
+	name: String, # 
+	citycode: String, # 
+}
+
+# 用于更改模型 Area 的方法，继承自 Mutation。
+extend type Mutation{
+	addArea(area: AreaInput): Area!, # 新增
+	updateArea(area: AreaInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeArea(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

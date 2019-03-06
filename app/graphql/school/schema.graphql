@@ -1,0 +1,46 @@
+# 查询模型 School 的类型对象
+type School{
+	sid: ID, # 
+	uName: String, # 
+	level: String, # 
+	lat: String, # 
+	lng: String, # 
+	province: String, # 
+	city: String, # 
+	district: String, # 
+	province_code: String, # 
+	city_code: String, # 
+	district_code: String, # 
+}
+
+# 用于查询模型 School 的方法，继承自 Query。
+extend type Query{
+	school(id: ID): School,  # 根据ID查询单个 School 对象
+	schoolAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [School],  # 查询全部 School 对象
+}
+
+# 更改模型 School 的 input 输入对象
+input SchoolInput{
+	sid: ID, # 
+	uName: String, # 
+	level: String, # 
+	lat: String, # 
+	lng: String, # 
+	province: String, # 
+	city: String, # 
+	district: String, # 
+	province_code: String, # 
+	city_code: String, # 
+	district_code: String, # 
+}
+
+# 用于更改模型 School 的方法，继承自 Mutation。
+extend type Mutation{
+	addSchool(school: SchoolInput): School!, # 新增
+	updateSchool(school: SchoolInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeSchool(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

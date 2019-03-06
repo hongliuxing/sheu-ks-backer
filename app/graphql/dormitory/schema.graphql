@@ -1,0 +1,33 @@
+# 查询模型 Dormitory 的类型对象
+type Dormitory{
+	id: ID, # 宿舍id，主键
+	drom_name: String, # 宿舍名称
+	drom_num: Int, # 排序编码
+	school_id: Int, # 学校id，外键，关联学校表
+}
+
+# 用于查询模型 Dormitory 的方法，继承自 Query。
+extend type Query{
+	dormitory(id: ID): Dormitory,  # 根据ID查询单个 Dormitory 对象
+	dormitoryAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: DormitoryInput, # 查询条件
+	): [Dormitory],  # 查询全部 Dormitory 对象
+}
+
+# 更改模型 Dormitory 的 input 输入对象
+input DormitoryInput{
+	id: ID, # 宿舍id，主键
+	drom_name: String, # 宿舍名称
+	drom_num: Int, # 排序编码
+	school_id: Int, # 学校id，外键，关联学校表
+}
+
+# 用于更改模型 Dormitory 的方法，继承自 Mutation。
+extend type Mutation{
+	addDormitory(dormitory: DormitoryInput): Dormitory!, # 新增
+	updateDormitory(dormitory: DormitoryInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeDormitory(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

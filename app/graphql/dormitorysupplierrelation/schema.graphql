@@ -1,0 +1,32 @@
+# 查询模型 Dormitorysupplierrelation 的类型对象
+type Dormitorysupplierrelation{
+	id: ID, # 主键id
+	dorm_id: String, # 外键，宿舍id，关联宿舍表
+	suppli_id: String, # 外键，供应商id，关联供应商表
+	dormitory: Dormitory,
+	supplier: Supplier,
+}
+
+# 用于查询模型 Dormitorysupplierrelation 的方法，继承自 Query。
+extend type Query{
+	dormitorysupplierrelation(id: ID): Dormitorysupplierrelation,  # 根据ID查询单个 Dormitorysupplierrelation 对象
+	dormitorysupplierrelationAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Dormitorysupplierrelation],  # 查询全部 Dormitorysupplierrelation 对象
+}
+
+# 更改模型 Dormitorysupplierrelation 的 input 输入对象
+input DormitorysupplierrelationInput{
+	id: ID, # 主键id
+	dorm_id: String, # 外键，宿舍id，关联宿舍表
+	suppli_id: String, # 外键，供应商id，关联供应商表
+}
+
+# 用于更改模型 Dormitorysupplierrelation 的方法，继承自 Mutation。
+extend type Mutation{
+	addDormitorysupplierrelation(dormitorysupplierrelation: DormitorysupplierrelationInput): Dormitorysupplierrelation!, # 新增
+	updateDormitorysupplierrelation(dormitorysupplierrelation: DormitorysupplierrelationInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeDormitorysupplierrelation(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

@@ -1,0 +1,64 @@
+# 查询模型 Goods 的类型对象
+type Goods{
+	id: ID, # 编号
+	seller_id: String, # 商家编号
+	dorm_id: String, # 供应商id
+	channel_id: String, # 频道编号
+	thumb_url: String, # 主图
+	title: String, # 商品名称
+	good_type: Int, # 商品类型,0：零食，1：餐饮
+	summary: String, # 简述
+	price: Int, # 单价
+	discount_price: Int, # 折扣后金额
+	priority: Int, # 优先级
+	struts: Int, # 状态
+	created: Datetime, # 
+	school_id: Int, # 学校id，外键，关联学校表
+	total_count: Int, # 当前总数量(剩余)
+	sell_count: Int, # 已销售数量
+	history_count: Int, # 历史总数量
+	goodschannel: Goodschannel, # 频道
+	seller: Seller, # 商铺关联对象
+	seller_title: String, # 商户名称
+	seller_telephone: String, # 商户电话
+	seller_address: String, # 商户地址
+}
+
+# 用于查询模型 Goods 的方法，继承自 Query。
+extend type Query{
+	goods(id: ID): Goods,  # 根据ID查询单个 Goods 对象
+	goodsAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: GoodsInput, # 查询条件
+	): [Goods],  # 查询全部 Goods 对象
+}
+
+# 更改模型 Goods 的 input 输入对象
+input GoodsInput{
+	id: ID, # 编号
+	seller_id: String, # 商家编号
+	dorm_id: String, # 供应商id
+	channel_id: String, # 频道编号
+	thumb_url: String, # 主图
+	title: String, # 商品名称
+	good_type: Int, # 商品类型,0：零食，1：餐饮
+	summary: String, # 简述
+	price: Int, # 单价
+	discount_price: Int, # 折扣后金额
+	priority: Int, # 优先级
+	struts: Int, # 状态
+	created: Datetime, # 
+	school_id: Int, # 学校id，外键，关联学校表
+	total_count: Int, # 当前总数量(剩余)
+	sell_count: Int, # 已销售数量
+	history_count: Int, # 历史总数量
+}
+
+# 用于更改模型 Goods 的方法，继承自 Mutation。
+extend type Mutation{
+	addGoods(goods: GoodsInput): Goods!, # 新增
+	updateGoods(goods: GoodsInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeGoods(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

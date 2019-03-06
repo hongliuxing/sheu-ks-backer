@@ -1,0 +1,32 @@
+# 查询模型 City 的类型对象
+type City{
+	id: ID, # 
+	code: String, # 
+	name: String, # 
+	provincecode: String, # 
+}
+
+# 用于查询模型 City 的方法，继承自 Query。
+extend type Query{
+	city(id: ID): City,  # 根据ID查询单个 City 对象
+	cityAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [City],  # 查询全部 City 对象
+}
+
+# 更改模型 City 的 input 输入对象
+input CityInput{
+	id: ID, # 
+	code: String, # 
+	name: String, # 
+	provincecode: String, # 
+}
+
+# 用于更改模型 City 的方法，继承自 Mutation。
+extend type Mutation{
+	addCity(city: CityInput): City!, # 新增
+	updateCity(city: CityInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeCity(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

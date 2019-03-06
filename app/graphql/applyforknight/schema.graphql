@@ -1,0 +1,46 @@
+# 查询模型 Applyforknight 的类型对象
+type Applyforknight{
+	id: ID, # 编号
+	school_id: String, # 学校编号
+	knight_id: String, # 骑士编号
+	partner_id: String, # (校园)审核人编号
+	realname: String, # 真实姓名
+	telephone: String, # 联系方式
+	student_card_url: String, # 学生证图片url
+	struts: Int, # 状态（0 未审核  1 已审核  -1 已拒绝）
+	reject_reason: String, # 拒绝理由
+	apply_time: Datetime, # 申请时间
+	check_time: Datetime, # 审核时间
+}
+
+# 用于查询模型 Applyforknight 的方法，继承自 Query。
+extend type Query{
+	applyforknight(id: ID): Applyforknight,  # 根据ID查询单个 Applyforknight 对象
+	applyforknightAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Applyforknight],  # 查询全部 Applyforknight 对象
+}
+
+# 更改模型 Applyforknight 的 input 输入对象
+input ApplyforknightInput{
+	id: ID, # 编号
+	school_id: String, # 学校编号
+	knight_id: String, # 骑士编号
+	partner_id: String, # (校园)审核人编号
+	realname: String, # 真实姓名
+	telephone: String, # 联系方式
+	student_card_url: String, # 学生证图片url
+	struts: Int, # 状态（0 未审核  1 已审核  -1 已拒绝）
+	reject_reason: String, # 拒绝理由
+	apply_time: Datetime, # 申请时间
+	check_time: Datetime, # 审核时间
+}
+
+# 用于更改模型 Applyforknight 的方法，继承自 Mutation。
+extend type Mutation{
+	addApplyforknight(applyforknight: ApplyforknightInput): Applyforknight!, # 新增
+	updateApplyforknight(applyforknight: ApplyforknightInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeApplyforknight(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

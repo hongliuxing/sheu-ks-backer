@@ -1,0 +1,66 @@
+# 查询模型 Orderstruts 的类型对象
+type Orderstruts{
+	id: ID, # 编号
+	out_trade_no: String, # 商户订单号
+	status: Int, # 状态（0，待付款<被动>；1，已付款<被动>；2，商家已接单；3，骑士派送中；4，骑士已送达(待评价)；5，(评论)已完结<被动>；6：可退款；-1，预付款失败<被动>；-2，客户取消订单；-3，付款失败<被动>；-4，用户申请订单退费；-5，订单退费中；-6，订单已退费<被动>）
+	prev_status: Int, # 上一个订单状态
+	prepay_time: Datetime, # 预支付时间
+	prepay_fail_time: Datetime, # 预支付失败时间
+	pay_time: Datetime, # 付款成功时间
+	pay_fail_time: Datetime, # 付款失败时间 (付款失败说明:商户订单支付失败需要生成新单号重新发起支付，要对原订单号调用关单，避免重复支付；系统下单后，用户支付超时，系统退出不再受理，避免用户继续，请调用关单接口。)
+	client_receive_fail_time: Datetime, # 客户取消订单时间
+	client_receive_fail_reason: String, # 客户取消订单理由
+	seller_receive_time: Datetime, # 商家接单时间
+	seller_receive_fail_time: Datetime, # 商家取消订单时间
+	seller_receive_fail_reason: String, # 商家取消订单理由
+	knight_receive_time: Datetime, # 骑士接单时间
+	knight_finish_time: Datetime, # 骑士送达时间
+	client_refund_time: Datetime, # 客户申请退费时间
+	client_refund_reason: String, # 客户申请退费理由
+	seller_refund_time: Datetime, # 商家确定退费时间
+	refund_finish_time: Datetime, # 客户退费到账时间
+	created: Datetime, # 
+	modify_time: Datetime, # 状态数据修改时间(乐观锁)
+}
+
+# 用于查询模型 Orderstruts 的方法，继承自 Query。
+extend type Query{
+	orderstruts(id: ID): Orderstruts,  # 根据ID查询单个 Orderstruts 对象
+	orderstrutsAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Orderstruts],  # 查询全部 Orderstruts 对象
+}
+
+# 更改模型 Orderstruts 的 input 输入对象
+input OrderstrutsInput{
+	id: ID, # 编号
+	out_trade_no: String, # 商户订单号
+	status: Int, # 状态（0，待付款<被动>；1，已付款<被动>；2，商家已接单；3，骑士派送中；4，骑士已送达(待评价)；5，(评论)已完结<被动>；6：可退款；-1，预付款失败<被动>；-2，客户取消订单；-3，付款失败<被动>；-4，用户申请订单退费；-5，订单退费中；-6，订单已退费<被动>）
+	prev_status: Int, # 上一个订单状态
+	prepay_time: Datetime, # 预支付时间
+	prepay_fail_time: Datetime, # 预支付失败时间
+	pay_time: Datetime, # 付款成功时间
+	pay_fail_time: Datetime, # 付款失败时间 (付款失败说明:商户订单支付失败需要生成新单号重新发起支付，要对原订单号调用关单，避免重复支付；系统下单后，用户支付超时，系统退出不再受理，避免用户继续，请调用关单接口。)
+	client_receive_fail_time: Datetime, # 客户取消订单时间
+	client_receive_fail_reason: String, # 客户取消订单理由
+	seller_receive_time: Datetime, # 商家接单时间
+	seller_receive_fail_time: Datetime, # 商家取消订单时间
+	seller_receive_fail_reason: String, # 商家取消订单理由
+	knight_receive_time: Datetime, # 骑士接单时间
+	knight_finish_time: Datetime, # 骑士送达时间
+	client_refund_time: Datetime, # 客户申请退费时间
+	client_refund_reason: String, # 客户申请退费理由
+	seller_refund_time: Datetime, # 商家确定退费时间
+	refund_finish_time: Datetime, # 客户退费到账时间
+	created: Datetime, # 
+	modify_time: Datetime, # 状态数据修改时间(乐观锁)
+}
+
+# 用于更改模型 Orderstruts 的方法，继承自 Mutation。
+extend type Mutation{
+	addOrderstruts(orderstruts: OrderstrutsInput): Orderstruts!, # 新增
+	updateOrderstruts(orderstruts: OrderstrutsInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeOrderstruts(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

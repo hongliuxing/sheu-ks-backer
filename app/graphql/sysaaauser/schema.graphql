@@ -1,0 +1,44 @@
+# 查询模型 Sysaaauser 的类型对象
+type Sysaaauser{
+	id: ID, # 编号
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 昵称(通常是微信昵称)
+	realname: String, # 真实姓名(必填)
+	telephone: String, # 联系方式(必填)
+	logo_url: String, # 头像(默认获取微信头像url)
+	gender: Int, #  1小哥哥 0小姐姐
+	struts: Int, # 状态（0 未审核  1 已审核）
+	created: Datetime, # 
+}
+
+# 用于查询模型 Sysaaauser 的方法，继承自 Query。
+extend type Query{
+	sysaaauser(id: ID): Sysaaauser,  # 根据ID查询单个 Sysaaauser 对象
+	sysaaauserAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Sysaaauser],  # 查询全部 Sysaaauser 对象
+}
+
+# 更改模型 Sysaaauser 的 input 输入对象
+input SysaaauserInput{
+	id: ID, # 编号
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 昵称(通常是微信昵称)
+	realname: String, # 真实姓名(必填)
+	telephone: String, # 联系方式(必填)
+	logo_url: String, # 头像(默认获取微信头像url)
+	gender: Int, #  1小哥哥 0小姐姐
+	struts: Int, # 状态（0 未审核  1 已审核）
+	created: Datetime, # 
+}
+
+# 用于更改模型 Sysaaauser 的方法，继承自 Mutation。
+extend type Mutation{
+	addSysaaauser(sysaaauser: SysaaauserInput): Sysaaauser!, # 新增
+	updateSysaaauser(sysaaauser: SysaaauserInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeSysaaauser(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

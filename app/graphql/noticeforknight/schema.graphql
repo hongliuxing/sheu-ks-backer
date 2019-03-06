@@ -1,0 +1,36 @@
+# 查询模型 Noticeforknight 的类型对象
+type Noticeforknight{
+	id: ID, # 编号
+	partner_id: String, # 合伙人编号
+	ntype: Int, # 公告类型(0 统一公告 1 审核公告)
+	title: String, # 公告标题
+	content: String, # 公告内容
+	created: Datetime, # 
+}
+
+# 用于查询模型 Noticeforknight 的方法，继承自 Query。
+extend type Query{
+	noticeforknight(id: ID): Noticeforknight,  # 根据ID查询单个 Noticeforknight 对象
+	noticeforknightAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Noticeforknight],  # 查询全部 Noticeforknight 对象
+}
+
+# 更改模型 Noticeforknight 的 input 输入对象
+input NoticeforknightInput{
+	id: ID, # 编号
+	partner_id: String, # 合伙人编号
+	ntype: Int, # 公告类型(0 统一公告 1 审核公告)
+	title: String, # 公告标题
+	content: String, # 公告内容
+	created: Datetime, # 
+}
+
+# 用于更改模型 Noticeforknight 的方法，继承自 Mutation。
+extend type Mutation{
+	addNoticeforknight(noticeforknight: NoticeforknightInput): Noticeforknight!, # 新增
+	updateNoticeforknight(noticeforknight: NoticeforknightInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeNoticeforknight(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

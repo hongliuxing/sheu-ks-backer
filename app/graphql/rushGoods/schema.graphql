@@ -1,0 +1,43 @@
+# 查询模型 RushGoods 的类型对象
+type RushGoods{
+	id: ID, # ID
+	activity_id: String, # 活动ID
+	goods_id: String, # 商品关联ID
+	struts: Int, # 状态
+	createAt: Datetime, # 创建时间
+	updateAt: Datetime, # 修改时间
+}
+
+# 用于查询模型 RushGoods 的方法，继承自 Query。
+extend type Query{
+	rushGoods(id: ID): RushGoods,  # 根据ID查询单个 RushGoods 对象
+	rushGoodsAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: RushGoodsInput, # 查询条件
+	): [RushGoods],  # 查询全部 RushGoods 对象
+	screenRushGoods(
+		activity_id: String, # 活动ID
+		school_id: Int, # 学校ID
+		own: Boolean, # 是否匹配该活动, 1 / 0
+	): [Goods],  # 查询全部 RushGoods 对象
+}
+
+# 更改模型 RushGoods 的 input 输入对象
+input RushGoodsInput{
+	id: ID, # ID
+	activity_id: String, # 活动ID
+	goods_id: String, # 商品关联ID
+	struts: Int, # 状态
+	createAt: Datetime, # 创建时间
+	updateAt: Datetime, # 修改时间
+}
+
+# 用于更改模型 RushGoods 的方法，继承自 Mutation。
+extend type Mutation{
+	addRushGoods(rushGoods: RushGoodsInput): RushGoods!, # 新增
+	updateRushGoods(rushGoods: RushGoodsInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeRushGoods(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+	changePartRushGoods(activity_id: String, goods_id: String, is_own_activity: Boolean): MessageUpdate!, # 变更商品的活动参与状态
+}
+

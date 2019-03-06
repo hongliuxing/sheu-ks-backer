@@ -1,0 +1,38 @@
+# 查询模型 Applyforpartner 的类型对象
+type Applyforpartner{
+	id: ID, # 编号
+	sysuer_id: String, # 后台审核人编号
+	telephone: String, # 合伙人编号
+	struts: Int, # 状态（0 未审核  1 已审核  -1 已拒绝）
+	reject_reason: String, # 拒绝理由
+	apply_time: Datetime, # 申请时间
+	check_time: Datetime, # 审核时间
+}
+
+# 用于查询模型 Applyforpartner 的方法，继承自 Query。
+extend type Query{
+	applyforpartner(id: ID): Applyforpartner,  # 根据ID查询单个 Applyforpartner 对象
+	applyforpartnerAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Applyforpartner],  # 查询全部 Applyforpartner 对象
+}
+
+# 更改模型 Applyforpartner 的 input 输入对象
+input ApplyforpartnerInput{
+	id: ID, # 编号
+	sysuer_id: String, # 后台审核人编号
+	telephone: String, # 合伙人编号
+	struts: Int, # 状态（0 未审核  1 已审核  -1 已拒绝）
+	reject_reason: String, # 拒绝理由
+	apply_time: Datetime, # 申请时间
+	check_time: Datetime, # 审核时间
+}
+
+# 用于更改模型 Applyforpartner 的方法，继承自 Mutation。
+extend type Mutation{
+	addApplyforpartner(applyforpartner: ApplyforpartnerInput): Applyforpartner!, # 新增
+	updateApplyforpartner(applyforpartner: ApplyforpartnerInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeApplyforpartner(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

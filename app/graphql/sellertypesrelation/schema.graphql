@@ -1,0 +1,32 @@
+# 查询模型 Sellertypesrelation 的类型对象
+type Sellertypesrelation{
+	id: ID, # 编号
+	seller_id: String, # 商家编号
+	type_id: String, # 类型编号
+	created: Datetime, # 
+}
+
+# 用于查询模型 Sellertypesrelation 的方法，继承自 Query。
+extend type Query{
+	sellertypesrelation(id: ID): Sellertypesrelation,  # 根据ID查询单个 Sellertypesrelation 对象
+	sellertypesrelationAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Sellertypesrelation],  # 查询全部 Sellertypesrelation 对象
+}
+
+# 更改模型 Sellertypesrelation 的 input 输入对象
+input SellertypesrelationInput{
+	id: ID, # 编号
+	seller_id: String, # 商家编号
+	type_id: String, # 类型编号
+	created: Datetime, # 
+}
+
+# 用于更改模型 Sellertypesrelation 的方法，继承自 Mutation。
+extend type Mutation{
+	addSellertypesrelation(sellertypesrelation: SellertypesrelationInput): Sellertypesrelation!, # 新增
+	updateSellertypesrelation(sellertypesrelation: SellertypesrelationInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeSellertypesrelation(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

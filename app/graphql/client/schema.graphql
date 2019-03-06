@@ -1,0 +1,46 @@
+# 查询模型 Client 的类型对象
+type Client{
+	id: ID, # 编号(ObjectId)
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 昵称(通常是微信昵称)
+	realname: String, # 真实姓名(选填)
+	telephone: String, # 联系方式(选填)
+	logo_url: String, # 头像(默认获取微信头像url)
+	gender: Int, # 1小哥哥 0小姐姐
+	struts: Int, # 状态（备用）
+	created: Datetime, # 
+	dorm_id: String, # 宿舍ID
+}
+
+# 用于查询模型 Client 的方法，继承自 Query。
+extend type Query{
+	client(id: ID): Client,  # 根据ID查询单个 Client 对象
+	clientAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Client],  # 查询全部 Client 对象
+}
+
+# 更改模型 Client 的 input 输入对象
+input ClientInput{
+	id: ID, # 编号(ObjectId)
+	unionid: String, # 平台统一编号
+	openid: String, # App独立编号
+	nickname: String, # 昵称(通常是微信昵称)
+	realname: String, # 真实姓名(选填)
+	telephone: String, # 联系方式(选填)
+	logo_url: String, # 头像(默认获取微信头像url)
+	gender: Int, # 1小哥哥 0小姐姐
+	struts: Int, # 状态（备用）
+	created: Datetime, # 
+	dorm_id: String, # 宿舍ID
+}
+
+# 用于更改模型 Client 的方法，继承自 Mutation。
+extend type Mutation{
+	addClient(client: ClientInput): Client!, # 新增
+	updateClient(client: ClientInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeClient(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

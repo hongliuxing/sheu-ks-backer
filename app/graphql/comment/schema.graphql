@@ -1,0 +1,42 @@
+# 查询模型 Comment 的类型对象
+type Comment{
+	id: ID, # 编号(ObjectId)
+	seller_id: String, # 商家编号(ObjectId)
+	author_id: String, # 作者编号(ObjectId)
+	order_id: String, # 订单编号
+	anonymity: Int, # 匿名状态( 0匿名 1显示(默认) )
+	score: Int, # 分数,星级由分数汇总而定( 0-100 )
+	content: String, # 内容
+	struts: Int, # 状态（备用）
+	created: Datetime, # 创建时间
+}
+
+# 用于查询模型 Comment 的方法，继承自 Query。
+extend type Query{
+	comment(id: ID): Comment,  # 根据ID查询单个 Comment 对象
+	commentAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Comment],  # 查询全部 Comment 对象
+}
+
+# 更改模型 Comment 的 input 输入对象
+input CommentInput{
+	id: ID, # 编号(ObjectId)
+	seller_id: String, # 商家编号(ObjectId)
+	author_id: String, # 作者编号(ObjectId)
+	order_id: String, # 订单编号
+	anonymity: Int, # 匿名状态( 0匿名 1显示(默认) )
+	score: Int, # 分数,星级由分数汇总而定( 0-100 )
+	content: String, # 内容
+	struts: Int, # 状态（备用）
+	created: Datetime, # 创建时间
+}
+
+# 用于更改模型 Comment 的方法，继承自 Mutation。
+extend type Mutation{
+	addComment(comment: CommentInput): Comment!, # 新增
+	updateComment(comment: CommentInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeComment(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+
