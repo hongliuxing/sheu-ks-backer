@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// 阿布的测试号 appid
+exports.APP_TEST_ABU = 'wx33cfb92cf676aa59';
+// 云社团 appid
+exports.APP_CLOUD_CLUB = 'wxf22545deb852c577';
+// 合伙人端 appid
+exports.APP_KS_PARTNER = 'wxaa6bce288a81f5ce';
+// 用于记录 secret 的 Map
+const apps = new Map();
+// 阿布的测试号
+apps.set(exports.APP_TEST_ABU, '87ccbe8283dae7dbc429a5da8f4ed408');
+// cloud-club
+apps.set(exports.APP_CLOUD_CLUB, '93e2257ded814891db0c2f6d98ace3ee');
+// cloud-club
+apps.set(exports.APP_KS_PARTNER, '94bffbe5752c9b0b30f7a39cf5bd55cb');
+exports.default = apps;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvamVjdC1jb25maWcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJwcm9qZWN0LWNvbmZpZy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGVBQWU7QUFDRixRQUFBLFlBQVksR0FBRyxvQkFBb0IsQ0FBQztBQUNqRCxZQUFZO0FBQ0MsUUFBQSxjQUFjLEdBQUcsb0JBQW9CLENBQUM7QUFDbkQsYUFBYTtBQUNBLFFBQUEsY0FBYyxHQUFHLG9CQUFvQixDQUFDO0FBRW5ELG9CQUFvQjtBQUNwQixNQUFNLElBQUksR0FBRyxJQUFJLEdBQUcsRUFBRSxDQUFDO0FBRXZCLFNBQVM7QUFDVCxJQUFJLENBQUMsR0FBRyxDQUFDLG9CQUFZLEVBQUUsa0NBQWtDLENBQUMsQ0FBQztBQUUzRCxhQUFhO0FBQ2IsSUFBSSxDQUFDLEdBQUcsQ0FBQyxzQkFBYyxFQUFFLGtDQUFrQyxDQUFDLENBQUM7QUFFN0QsYUFBYTtBQUNiLElBQUksQ0FBQyxHQUFHLENBQUMsc0JBQWMsRUFBRSxrQ0FBa0MsQ0FBQyxDQUFDO0FBRTdELGtCQUFlLElBQUksQ0FBQyJ9
