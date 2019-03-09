@@ -16,6 +16,12 @@ export default (appInfo: EggAppInfo) => {
     ignore: ['/index', '/access/partnerLogin', '/assets', '/global'],
   };
 
+  // {app_root}/config/config.default.js
+  config.wechatApi = {
+    appId: 'wx18aa432769631379',
+    appSecret: 'a864a627dcfbcc51cb5622d322edf8cf',
+  };
+
   // 配置静态资源
   config.static = {
     maxAge: 31536000,

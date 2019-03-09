@@ -7,3 +7,4 @@ import 'egg-cors';
 import 'egg-graphql';
 import 'egg-static';
 import 'egg-socket.io';
+import 'egg-wechat-api';

@@ -37,6 +37,12 @@ const plugin: EggPlugin = {
     package: 'egg-socket.io',
   },
 
+  // {app_root}/config/plugin.js
+  wechatApi: {
+    enable: true,
+    package: 'egg-wechat-api',
+  },
+
   // 启用插件 egg-view-assets, 做静态资源模板
   // assets: {
   //   enable: true,

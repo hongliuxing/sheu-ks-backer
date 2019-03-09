@@ -15,7 +15,7 @@ module.exports = (app) => {
 
   // 登录相关
   router.post('/global/sheugzhAccessToken', controller.globalSupport.getSheuGZHAccessToken);
-  router.get('/global/sheuIn', controller.globalSupport.getSheuGZHIn);
+  // router.get('/global/sheuIn', controller.globalSupport.getSheuGZHIn);
 
   // 登录相关
   router.post('/access/partnerlogin', controller.access.partnerlogin);
