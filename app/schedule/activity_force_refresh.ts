@@ -5,7 +5,7 @@
 export const schedule = {
     interval: '10m',
     // cron: '*/20 * * * * *',
-    type: 'all', // run in all workers
+    type: 'worker', // run in all workers
 };
 
 export const task = async () => {

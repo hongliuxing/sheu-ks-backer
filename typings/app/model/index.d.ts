@@ -36,6 +36,7 @@ import Seller from '../../../app/model/seller';
 import Selleradmin from '../../../app/model/selleradmin';
 import Sellertypes from '../../../app/model/sellertypes';
 import Sellertypesrelation from '../../../app/model/sellertypesrelation';
+import SheuUser from '../../../app/model/sheu_user';
 import Supplier from '../../../app/model/supplier';
 import Sysaaauser from '../../../app/model/sysaaauser';
 import CommonBase from '../../../app/model/common/base';
@@ -76,6 +77,7 @@ declare module 'sequelize' {
     Selleradmin: ReturnType<typeof Selleradmin>;
     Sellertypes: ReturnType<typeof Sellertypes>;
     Sellertypesrelation: ReturnType<typeof Sellertypesrelation>;
+    SheuUser: ReturnType<typeof SheuUser>;
     Supplier: ReturnType<typeof Supplier>;
     Sysaaauser: ReturnType<typeof Sysaaauser>;
     Common: {

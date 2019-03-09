@@ -17,22 +17,22 @@ export default (app) => {
     //     cert: fs.readFileSync('./cert/cert-1540222230559_she-u.cn.crt')
     // };
 
-    app.get('/global/sheuIn', function* (this: any) {
+    // app.get('/global/sheuIn', function* (this: any) {
 
-        console.log('微信开始接入 ====> ');
-        const { wechatApi } = app;
+    //     console.log('微信开始接入 ====> ');
+    //     const { wechatApi } = app;
     
-        try {
-          const ticket = yield wechatApi.getTicket();
-          console.log('微信排序拼接字符串[ticket]: ', ticket);
-          this.status = 200;
-          this.body = ticket;
+    //     try {
+    //       const ticket = yield wechatApi.getTicket();
+    //       console.log('微信排序拼接字符串[ticket]: ', ticket);
+    //       this.status = 200;
+    //       this.body = ticket;
     
-        } catch (error) {
-          this.status = 500;
-          this.body = error;
-        }
-    });
+    //     } catch (error) {
+    //       this.status = 500;
+    //       this.body = error;
+    //     }
+    // });
 
     /**
      * 自定义初始化方式
