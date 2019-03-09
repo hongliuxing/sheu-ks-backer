@@ -22,6 +22,7 @@ type Goods{
 	seller_title: String, # 商户名称
 	seller_telephone: String, # 商户电话
 	seller_address: String, # 商户地址
+	updateAt: Datetime, # 
 }
 
 # 用于查询模型 Goods 的方法，继承自 Query。
@@ -53,6 +54,7 @@ input GoodsInput{
 	total_count: Int, # 当前总数量(剩余)
 	sell_count: Int, # 已销售数量
 	history_count: Int, # 历史总数量
+	updateAt: Datetime, # 
 }
 
 # 用于更改模型 Goods 的方法，继承自 Mutation。

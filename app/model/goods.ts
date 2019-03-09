@@ -63,6 +63,13 @@ export default (app) => {
 		history_count: { // 历史总数量
 			type: DataTypes.INTEGER,
 		},
+		updateAt: {
+			type: DataTypes.DATE,
+			get updateAt() {
+				return moment(Goods.getDataValue('updateAt')).format('YYYY-MM-DD HH:mm:ss');
+			},
+			defaultValue: DataTypes.NOW,
+		},
 	}, {
 		tableName: 'goods',
 		timestamps: false,
