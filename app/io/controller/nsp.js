@@ -50,7 +50,7 @@ class NspController extends Controller {
         const res = {
             dorms
         };
-        console.log('======= 宿舍状态发送数据:', res);
+        // console.log('======= 宿舍状态发送数据:', res);
         nsp.emit('onDormDetails', res);
     }
 
@@ -65,7 +65,7 @@ class NspController extends Controller {
         const res = {
             dorms
         };
-        console.log('======= 宿舍状态发送数据:', res);
+        // console.log('======= 宿舍状态发送数据:', res);
         nsp.emit('onDormState', res);
     }
 
@@ -102,7 +102,7 @@ class NspController extends Controller {
         const res = {
             orderInfo
         };
-        console.log('======= 订单详情发送数据:', res);
+        // console.log('======= 订单详情发送数据:', res);
         nsp.emit('onOrderInfo', res);
     }
 

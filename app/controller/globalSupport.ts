@@ -24,6 +24,7 @@ export default class GlobalSupportController extends BaseController {
         const { ctx } = this;
 
         var token = config.wechat.token;
+        console.log('微信接入 ====> ', ctx.query);
         var signature = ctx.query.signature;
         var nonce = ctx.query.nonce;
         var timestamp = ctx.query.timestamp;
