@@ -14,6 +14,10 @@ module.exports = (app) => {
   // router.post('/mytest/post', controller.mytest.testPost);
 
   // 登录相关
+  router.post('/global/sheugzhAccessToken', controller.globalSupport.getSheuGZHAccessToken);
+  router.get('/global/sheuIn', controller.globalSupport.getSheuGZHIn);
+
+  // 登录相关
   router.post('/access/partnerlogin', controller.access.partnerlogin);
   router.post('/access/partnerSMS', controller.access.partnerSMS);
   router.post('/access/partnerRegister', controller.access.partnerRegister);

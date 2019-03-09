@@ -8,6 +8,7 @@ import Area from '../../../app/controller/area';
 import Club from '../../../app/controller/club';
 import Clubmaster from '../../../app/controller/clubmaster';
 import Gift from '../../../app/controller/gift';
+import GlobalSupport from '../../../app/controller/globalSupport';
 import Gqlactivity from '../../../app/controller/gqlactivity';
 import Home from '../../../app/controller/home';
 import Mytest from '../../../app/controller/mytest';
@@ -27,6 +28,7 @@ declare module 'egg' {
     club: Club;
     clubmaster: Clubmaster;
     gift: Gift;
+    globalSupport: GlobalSupport;
     gqlactivity: Gqlactivity;
     home: Home;
     mytest: Mytest;

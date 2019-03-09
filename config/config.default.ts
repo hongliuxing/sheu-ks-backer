@@ -13,7 +13,7 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = ['xtoken', 'csrfauth', 'graphql'];
 
   config.xtoken = {
-    ignore: ['/index', '/access/partnerLogin', '/assets'],
+    ignore: ['/index', '/access/partnerLogin', '/assets', '/global'],
   };
 
   // 配置静态资源
