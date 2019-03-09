@@ -8,7 +8,7 @@ module.exports = {
     schedule: {
         interval: '10m',
         // cron: '*/20 * * * * *',
-        // immediate: true, // 配置了该参数为 true 时，这个定时任务会在应用启动并 ready 后立刻执行一次这个定时任务。
+        immediate: true, // 配置了该参数为 true 时，这个定时任务会在应用启动并 ready 后立刻执行一次这个定时任务。
         type: 'worker', // run in all workers
     },
 
@@ -24,7 +24,8 @@ module.exports = {
             const {access_token} = access_token_res.data || {access_token: null};
             console.log('〓 公众号access_token... ', access_token_res);
             if(!access_token){
-                return console.log('〓 gzhAccessToken is null...');
+                ctx.logger.error('〓 1. gzhAccessToken is null...');
+                return console.log('〓 1. gzhAccessToken is null...');
             }
             const getUsersUrl = `https://api.weixin.qq.com/cgi-bin/user/get?access_token=${access_token}`;
             const users_res = await ctx.curl(getUsersUrl , {
@@ -33,11 +34,13 @@ module.exports = {
             const users = users_res.data && users_res.data.data && users_res.data.data.openid;
             console.log('〓 公众号用户[微信获取]: ', users_res);
             if(!users || !Array.isArray(users) || !users.length){
-                return console.log('〓 gzhAccessToken users length...');
+                ctx.logger.error('〓 2. gzhAccessToken users length...');
+                return console.log('〓 2. gzhAccessToken users length...');
             }
             // 过滤筛选不需要继续进行写入的用户
             const sheuUsersMap = ctx.app.sheuUsersMap || new Map();
-            console.log('〓 公众号用户[数据库存储]: ', sheuUsersMap.size);
+            console.log('〓 3. 公众号用户[数据库存储]: ', sheuUsersMap.size);
+            ctx.logger.info('〓 3. 公众号用户[数据库存储]: ', sheuUsersMap.size);
         
             let willWriteUser = [];
             users.forEach((useropenid) => {
@@ -46,6 +49,7 @@ module.exports = {
                     willWriteUser.push(useropenid);
                 }
             });
+            ctx.logger.info('〓 4. 公众号用户[待写入用户]: ', willWriteUser.length);
             console.log('〓 公众号用户[待写入用户]: ', willWriteUser.length);
             // 循环获取用户的 unionid
             for(let openid of willWriteUser){
@@ -57,10 +61,11 @@ module.exports = {
                 if(user_info_res.data){
                     // 查到了用户, 则写入数据库
                     const sheu_user = user_info_res.data;
+                    ctx.logger.info('〓 4. 公众号用户[真正写入用户]: ', sheu_user.unionid);
                     console.log('〓 公众号用户[写入用户]: ', sheu_user.unionid);
                     delete sheu_user.tagid_list;
                     sheu_user.id = uuidv1();
-                    console.log('用户ID::: ', sheu_user.id);
+                    // console.log('用户ID::: ', sheu_user.id);
                     const sheu_ok = await ctx.model.SheuUser.findOrCreate({
                         where: {
                             openid: sheu_user.openid,
@@ -71,10 +76,12 @@ module.exports = {
                     if(sheu_ok){
                         sheuUsersMap.set(sheu_user.openid, sheu_user.unionid);
                     }else{
+                        ctx.logger.error('〓 5. 公众号用户[user not write]: ', sheu_ok);
                         console.log('〓 公众号用户[user not write]: ', sheu_ok);
                     }
                 }else{
-                    console.log('〓 公众号用户[user_info_res.data is null]: ', user_info_res);
+                    ctx.logger.error('〓 6. 公众号用户[数user_info_res.data is null]: ', user_info_res);
+                    console.log('〓 6. 公众号用户[user_info_res.data is null]: ', user_info_res);
                 }
 
                 // 重新缓存 sheuUsersMap
