@@ -113,7 +113,7 @@ export default (appInfo: EggAppInfo) => {
    */
   config.logger = {
     // 相对config文件夹的上一级目录
-    dir: '../egglogs',
+    dir: '../log-xiaopu',
   };
   /**
    * 配置 视图引擎
