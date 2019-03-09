@@ -3,7 +3,7 @@
  * 每 115 分钟刷新公众号中的 ACCESS_TOKEN
  */
 export const schedule = {
-    interval: '115m',
+    interval: '60m',
     // cron: '*/20 * * * * *',
     immediate: true, // 配置了该参数为 true 时，这个定时任务会在应用启动并 ready 后立刻执行一次这个定时任务。
     type: 'worker', // run in all workers
