@@ -19,10 +19,13 @@
     "autod": "autod",
     "lint": "tslint --project . -c tslint.json",
     "clean": "ets clean",
-    "test-part1": "egg-bin test"
+    "test-part1": "egg-bin test",
+    "test-1": "node test/app/main/t1.test.js"
   },
   "dependencies": {
     "ali-oss": "^6.0.1",
+    "axios": "^0.18.0",
+    "blueimp-md5": "^2.10.0",
     "crypto": "^1.0.1",
     "dataloader": "^1.4.0",
     "egg": "^2.6.1",
@@ -46,8 +49,10 @@
     "request": "^2.87.0",
     "sequelize-typescript": "^0.6.6",
     "sha1": "^1.1.1",
+    "string_decoder": "^1.2.0",
     "uuid": "^3.3.2",
-    "winston": "^3.1.0"
+    "winston": "^3.1.0",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",
