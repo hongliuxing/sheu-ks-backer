@@ -1,0 +1,51 @@
+# 查询模型 Goodssupplierrelation 的类型对象
+type Goodssupplierrelation{
+	id: ID, # 供应商和商品关联表id
+	goods_id: String, # 商品id
+	supplier_id: String, # 供应商id
+	current_count: Int, # 当前数量
+	seller_count: Int, # 销售数量
+	modify_time: Datetime, # 修改时间
+	create_time: Datetime, # 创建时间
+	goods: Goods, # 商品
+	supplier: Supplier, # 店主 
+}
+
+# 用于查询模型 Goodssupplierrelation 的方法，继承自 Query。
+extend type Query{
+	# 根据ID查询单个 Goodssupplierrelation 对象
+	goodssupplierrelation(goods_id: String, supplier_id: String): Goodssupplierrelation, 
+	goodssupplierrelationAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		where: GoodssupplierrelationInput, # 
+	): [Goodssupplierrelation],  # 查询全部 Goodssupplierrelation 对象
+	goodssupplierrelationRemainingAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+		supplier_id: String, # 
+		channel_id: String, # 
+	): [Goods],  # 查询全部 Goodssupplierrelation 对象
+}
+
+# 更改模型 Goodssupplierrelation 的 input 输入对象
+input GoodssupplierrelationInput{
+	id: ID, # 供应商和商品关联表id
+	goods_id: String, # 商品id
+	supplier_id: String, # 供应商id
+	current_count: Int, # 当前数量
+	seller_count: Int, # 销售数量
+	modify_time: Datetime, # 修改时间
+	create_time: Datetime, # 创建时间
+	goods: GoodsInput, # 商品
+	supplier: SupplierInput, # 店主
+	replen_count: Int, # 补货量
+}
+
+# 用于更改模型 Goodssupplierrelation 的方法，继承自 Mutation。
+extend type Mutation{
+	addGoodssupplierrelation(goodssupplierrelation: GoodssupplierrelationInput): Goodssupplierrelation!, # 新增
+	updateGoodssupplierrelation(goodssupplierrelation: GoodssupplierrelationInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeGoodssupplierrelation(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

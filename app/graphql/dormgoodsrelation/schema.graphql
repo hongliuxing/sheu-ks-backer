@@ -1,0 +1,38 @@
+# 查询模型 Dormgoodsrelation 的类型对象
+type Dormgoodsrelation{
+	id: ID, # 宿舍楼商品关系表id
+	dorm_id: String, # 宿舍id
+	goods_id: String, # 商品id
+	total_count: Int, # 商品总量(整个宿舍楼的商品量,由存储过程触发增加)
+	seller_count: Int, # 销售量
+	create_time: Datetime, # 创建时间
+	modify_time: Datetime, # 修改时间
+}
+
+# 用于查询模型 Dormgoodsrelation 的方法，继承自 Query。
+extend type Query{
+	dormgoodsrelation(id: ID): Dormgoodsrelation,  # 根据ID查询单个 Dormgoodsrelation 对象
+	dormgoodsrelationAll(
+		page: Page, # 分页对象
+		order: [OrderEntry], # 排序方式
+	): [Dormgoodsrelation],  # 查询全部 Dormgoodsrelation 对象
+}
+
+# 更改模型 Dormgoodsrelation 的 input 输入对象
+input DormgoodsrelationInput{
+	id: ID, # 宿舍楼商品关系表id
+	dorm_id: String, # 宿舍id
+	goods_id: String, # 商品id
+	total_count: Int, # 商品总量(整个宿舍楼的商品量,由存储过程触发增加)
+	seller_count: Int, # 销售量
+	create_time: Datetime, # 创建时间
+	modify_time: Datetime, # 修改时间
+}
+
+# 用于更改模型 Dormgoodsrelation 的方法，继承自 Mutation。
+extend type Mutation{
+	addDormgoodsrelation(dormgoodsrelation: DormgoodsrelationInput): Dormgoodsrelation!, # 新增
+	updateDormgoodsrelation(dormgoodsrelation: DormgoodsrelationInput): MessageUpdate!, # 修改,返回更新影响行数
+	removeDormgoodsrelation(id: ID!): MessageUpdate!, # 删除,返回更新影响行数
+}
+

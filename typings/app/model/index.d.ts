@@ -12,10 +12,12 @@ import Businesstypes from '../../../app/model/businesstypes';
 import City from '../../../app/model/city';
 import Client from '../../../app/model/client';
 import Comment from '../../../app/model/comment';
+import Dormgoodsrelation from '../../../app/model/dormgoodsrelation';
 import Dormitory from '../../../app/model/dormitory';
 import Dormitorysupplierrelation from '../../../app/model/dormitorysupplierrelation';
 import Goods from '../../../app/model/goods';
 import Goodschannel from '../../../app/model/goodschannel';
+import Goodssupplierrelation from '../../../app/model/goodssupplierrelation';
 import Goodstypes from '../../../app/model/goodstypes';
 import Goodstypesrelation from '../../../app/model/goodstypesrelation';
 import Knight from '../../../app/model/knight';
@@ -38,6 +40,7 @@ import Sellertypes from '../../../app/model/sellertypes';
 import Sellertypesrelation from '../../../app/model/sellertypesrelation';
 import SheuUser from '../../../app/model/sheu_user';
 import Supplier from '../../../app/model/supplier';
+import Supplierinoutgoods from '../../../app/model/supplierinoutgoods';
 import Sysaaauser from '../../../app/model/sysaaauser';
 import CommonBase from '../../../app/model/common/base';
 
@@ -53,10 +56,12 @@ declare module 'sequelize' {
     City: ReturnType<typeof City>;
     Client: ReturnType<typeof Client>;
     Comment: ReturnType<typeof Comment>;
+    Dormgoodsrelation: ReturnType<typeof Dormgoodsrelation>;
     Dormitory: ReturnType<typeof Dormitory>;
     Dormitorysupplierrelation: ReturnType<typeof Dormitorysupplierrelation>;
     Goods: ReturnType<typeof Goods>;
     Goodschannel: ReturnType<typeof Goodschannel>;
+    Goodssupplierrelation: ReturnType<typeof Goodssupplierrelation>;
     Goodstypes: ReturnType<typeof Goodstypes>;
     Goodstypesrelation: ReturnType<typeof Goodstypesrelation>;
     Knight: ReturnType<typeof Knight>;
@@ -79,6 +84,7 @@ declare module 'sequelize' {
     Sellertypesrelation: ReturnType<typeof Sellertypesrelation>;
     SheuUser: ReturnType<typeof SheuUser>;
     Supplier: ReturnType<typeof Supplier>;
+    Supplierinoutgoods: ReturnType<typeof Supplierinoutgoods>;
     Sysaaauser: ReturnType<typeof Sysaaauser>;
     Common: {
       Base: ReturnType<typeof CommonBase>;

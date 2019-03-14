@@ -36,7 +36,45 @@
 //import * as rush_knight from './graphql/rush_knight';
 //import * as banner from './graphql/banner';
 
+// import * as dormgoodsrelation from './graphql/dormgoodsrelation';
+import * as goodssupplierrelation from './graphql/goodssupplierrelation';
+// import * as supplierinoutgoods from './graphql/supplierinoutgoods';
+
 describe('test/app/controller/home.test.ts', () => {
+
+	// dormgoodsrelation.find();
+	// dormgoodsrelation.findAll();
+	// dormgoodsrelation.add();
+	// dormgoodsrelation.update();
+	// dormgoodsrelation.remove();
+
+	// const supplier_id = '231dc230-42fe-11e9-8219-5b1c993210c3';
+	// const goods_id = '0caa0600-42d4-11e9-8219-5b1c993210c3';
+	// goodssupplierrelation.find(goods_id, supplier_id);
+
+	// goodssupplierrelation.findAll({
+	// 	supplier_id: "123415f0-3bba-11e9-b878-cb83b89bb04b",
+	// 	// goods: {
+	// 	// 	channel_id: '24fa7a50-3f41-11e9-a8e9-ad6c1eabe4f0',
+	// 	// },
+	// 	// channel_id: '24fa7a50-3f41-11e9-a8e9-ad6c1eabe4f0',
+	// });
+
+	// const supplier_id = '231dc230-42fe-11e9-8219-5b1c993210c3';
+	// const channel_id = '19f40800-3669-11e9-9959-95b8e40dbfb4';
+	// const channel_id = 'c15857a5-3648-11e9-bc33-00163e08112a';
+	// goodssupplierrelation.remainingAll(supplier_id, channel_id);
+
+	// goodssupplierrelation.add();
+	goodssupplierrelation.update();
+	// goodssupplierrelation.remove();
+
+	// supplierinoutgoods.find();
+	// supplierinoutgoods.findAll();
+	// supplierinoutgoods.add();
+	// supplierinoutgoods.update();
+	// supplierinoutgoods.remove();
+
 	// banner.find();
 	// banner.findAll();
 	// banner.add();
