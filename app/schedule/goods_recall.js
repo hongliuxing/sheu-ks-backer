@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // const decoder = new StringDecoder('utf8');
 const WechatUtils = require('../utils/wx/WechatUtils');
 /**
- * 用于描述与活动相关的定时任务
- * 兜底方案一：每10分钟刷新活动数据
+ * 定时器用于归还宿舍楼被霸占的库存
+ * 并且关闭微信订单
  */
 exports.schedule = {
     interval: '30m',

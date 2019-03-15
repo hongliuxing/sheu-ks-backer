@@ -6,7 +6,7 @@ const uuidv1 = require('uuid/v1');
 
 module.exports = {
     schedule: {
-        interval: '10m',
+        interval: '30m',
         // cron: '*/20 * * * * *',
         immediate: true, // 配置了该参数为 true 时，这个定时任务会在应用启动并 ready 后立刻执行一次这个定时任务。
         type: 'worker', // run in all workers
@@ -61,23 +61,25 @@ module.exports = {
                 if(user_info_res.data){
                     // 查到了用户, 则写入数据库
                     const sheu_user = user_info_res.data;
-                    ctx.logger.info('〓 4. 公众号用户[真正写入用户]: ', sheu_user.unionid);
-                    console.log('〓 公众号用户[写入用户]: ', sheu_user.unionid);
-                    delete sheu_user.tagid_list;
-                    sheu_user.id = uuidv1();
-                    // console.log('用户ID::: ', sheu_user.id);
-                    const sheu_ok = await ctx.model.SheuUser.findOrCreate({
-                        where: {
-                            openid: sheu_user.openid,
-                            unionid: sheu_user.unionid,
-                        },
-                        defaults: sheu_user,
-                    });
-                    if(sheu_ok){
-                        sheuUsersMap.set(sheu_user.openid, sheu_user.unionid);
-                    }else{
-                        ctx.logger.error('〓 5. 公众号用户[user not write]: ', sheu_ok);
-                        console.log('〓 公众号用户[user not write]: ', sheu_ok);
+                    if(sheu_user.openid){
+                        ctx.logger.info('〓 4. 公众号用户[真正写入用户]: ', sheu_user.unionid);
+                        console.log('〓 公众号用户[写入用户]: ', sheu_user.unionid);
+                        delete sheu_user.tagid_list;
+                        sheu_user.id = uuidv1();
+                        // console.log('用户ID::: ', sheu_user.id);
+                        const sheu_ok = await ctx.model.SheuUser.findOrCreate({
+                            where: {
+                                openid: sheu_user.openid,
+                                unionid: sheu_user.unionid,
+                            },
+                            defaults: sheu_user,
+                        });
+                        if(sheu_ok){
+                            sheuUsersMap.set(sheu_user.openid, sheu_user.unionid);
+                        }else{
+                            ctx.logger.error('〓 5. 公众号用户[user not write]: ', sheu_ok);
+                            console.log('〓 公众号用户[user not write]: ', sheu_ok);
+                        }
                     }
                 }else{
                     ctx.logger.error('〓 6. 公众号用户[数user_info_res.data is null]: ', user_info_res);

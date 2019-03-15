@@ -3,7 +3,12 @@
 module.exports = (app) => {
   const { controller, router, io } = app;
 
-  io.of('/io-listening').route('orderChange', io.controller.nsp.orderChange);
+  if(io){
+    console.log(`router's [io] will be start...`);
+    io.of('/io-listening').route('orderChange', io.controller.nsp.orderChange);
+  }else{
+    console.error(`router's [io] is undefined.....`);
+  }
 
   // app.resources('student', '/api/student', app.controller.student);
 
