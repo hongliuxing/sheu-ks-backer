@@ -33,6 +33,7 @@ export default (app) => {
 	});
 
 	Ordergoodsrelation.associate = () => {
+		Ordergoodsrelation.belongsTo(app.model.Goods, { foreignKey: 'goods_id', targetKey: 'id', as: 'goods' } );
 		// Ordergoodsrelation.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Ordergoodsrelation.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 	}

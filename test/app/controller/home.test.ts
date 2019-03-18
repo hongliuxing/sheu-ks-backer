@@ -37,7 +37,7 @@
 //import * as banner from './graphql/banner';
 
 // import * as dormgoodsrelation from './graphql/dormgoodsrelation';
-import * as goodssupplierrelation from './graphql/goodssupplierrelation';
+// import * as goodssupplierrelation from './graphql/goodssupplierrelation';
 // import * as supplierinoutgoods from './graphql/supplierinoutgoods';
 
 describe('test/app/controller/home.test.ts', () => {
@@ -66,7 +66,7 @@ describe('test/app/controller/home.test.ts', () => {
 	// goodssupplierrelation.remainingAll(supplier_id, channel_id);
 
 	// goodssupplierrelation.add();
-	goodssupplierrelation.update();
+	// goodssupplierrelation.update();
 	// goodssupplierrelation.remove();
 
 	// supplierinoutgoods.find();

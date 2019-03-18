@@ -32,6 +32,49 @@ class OrderConnector extends BaseConnector {
 		return this.proxy.findAll({where, ...opts });
 	}
 
+	// 检查销售过的订单
+	async checkSellOrders(goods_id){
+		const {ctx} = this;
+		const {Goods, Dormitory, Orderstruts, Ordergoodsrelation, Order} = ctx.model;
+
+		try {
+			const include = [{
+				model: Dormitory,
+				required: true,
+			},{
+				model: Orderstruts,
+				required: true,
+				as: 'orderstruts',
+				where: {
+					status: 4,
+				}
+			},{
+				model: Ordergoodsrelation,
+				required: true,
+				attributes: ['goods_id', 'goods_count'],
+				include: [{
+					model: Goods,
+					required: true,
+					as: 'goods',
+					where: {
+						id: goods_id
+					}
+				}],
+			}];
+			// 查询符合条件(商品id)的所有(已完成 struts = 4)的订单
+			const orders = await Order.findAll({
+				include, order: [['created', 'DESC']]
+			});
+
+			return orders;
+		} catch (error) {
+			const msg = new Message({err: ErrorType.DATABASE_ERROR, desc: error});
+			console.error('【checkSellOrders ERROR】： ', msg);
+			ctx.logger.error(msg);
+			return null;
+		}
+	}
+
 	// 新增模型的方法
 	async addOrder(order) {
 		const {ctx} = this;

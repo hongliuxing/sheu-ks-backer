@@ -20,8 +20,6 @@ module.exports = {
         // const rand = Math.random();
         // ctx.logger.info('======== 【扩展类型定时任务】: 1. 执行定时任务刷新token: %s', rand);
 
-        
-
         console.log('【定时任务 wx accessToken】开始准备刷新.....');
 
 

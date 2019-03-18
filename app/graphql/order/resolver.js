@@ -13,6 +13,11 @@ module.exports = {
 			return ctx.connector.order.orderAll(page,order);
 		},
 
+		// 检查销售过的订单
+		checkSellOrders(root, {goods_id}, ctx){
+			return ctx.connector.order.checkSellOrders(goods_id);
+		},
+
 	},
 	Mutation: {
 		// 新增模型的方法

@@ -25,6 +25,10 @@ type Order{
 	detail: String, # 
 	dorm_id: String, # 宿舍ID
 	rush_activity_id: String, # 爆款活动ID
+
+	dormitory: Dormitory, # 宿舍楼
+	orderstruts: Orderstruts, # 订单状态
+	ordergoodsrelations: [Ordergoodsrelation], # 宿舍商品关系
 }
 
 # 用于查询模型 Order 的方法，继承自 Query。
@@ -34,6 +38,10 @@ extend type Query{
 		page: Page, # 分页对象
 		order: [OrderEntry], # 排序方式
 	): [Order],  # 查询全部 Order 对象
+
+	checkSellOrders(
+		goods_id: String, # 商品ID
+	): [Order], # 检查销售订单数据 -> 与微信交互检查
 }
 
 # 更改模型 Order 的 input 输入对象
@@ -63,6 +71,10 @@ input OrderInput{
 	detail: String, # 
 	dorm_id: String, # 宿舍ID
 	rush_activity_id: String, # 爆款活动ID
+
+	# dormitory: DormitoryInput, # 宿舍楼
+	# orderstruts: OrderstrutsInput, # 订单状态
+	# ordergoodsrelation: [OrdergoodsrelationInput], # 宿舍商品关系
 }
 
 # 用于更改模型 Order 的方法，继承自 Mutation。

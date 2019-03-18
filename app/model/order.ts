@@ -88,7 +88,10 @@ export default (app) => {
 
 	Order.associate = () => {
 		// Order.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } ); //Ordergoodsrelation
-		Order.belongsTo(app.model.Orderstruts, { foreignKey: 'out_trade_no', targetKey: 'id' } );
+		Order.belongsTo(app.model.Orderstruts, { foreignKey: 'out_trade_no', targetKey: 'id', as: 'orderstruts' } );
+		Order.belongsTo(app.model.Dormitory, { foreignKey: 'dorm_id', targetKey: 'id' } );
+
+		Order.hasMany(app.model.Ordergoodsrelation, { foreignKey: 'out_trade_no', targetKey: 'out_trade_no' } );
 		// Order.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 	}
 	

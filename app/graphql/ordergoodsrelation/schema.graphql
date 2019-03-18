@@ -5,6 +5,7 @@ type Ordergoodsrelation{
 	goods_id: String, # 商品编号
 	goods_count: Int, # 商品数量
 	created: Datetime, # 
+	goods: Goods, # 商品
 }
 
 # 用于查询模型 Ordergoodsrelation 的方法，继承自 Query。
@@ -23,6 +24,7 @@ input OrdergoodsrelationInput{
 	goods_id: String, # 商品编号
 	goods_count: Int, # 商品数量
 	created: Datetime, # 
+	goods: GoodsInput, # 商品
 }
 
 # 用于更改模型 Ordergoodsrelation 的方法，继承自 Mutation。
