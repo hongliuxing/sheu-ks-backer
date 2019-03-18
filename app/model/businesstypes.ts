@@ -32,7 +32,7 @@ export default (app) => {
 				return moment(Businesstypes.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'businesstypes',
 		timestamps: false,
@@ -41,8 +41,7 @@ export default (app) => {
 	Businesstypes.associate = () => {
 		// Businesstypes.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Businesstypes.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Businesstypes;
 };
-

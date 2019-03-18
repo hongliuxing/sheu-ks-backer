@@ -29,7 +29,7 @@ export default (app) => {
 				return moment(Noticeforknight.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'noticeforknight',
 		timestamps: false,
@@ -38,8 +38,7 @@ export default (app) => {
 	Noticeforknight.associate = () => {
 		// Noticeforknight.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Noticeforknight.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Noticeforknight;
 };
-

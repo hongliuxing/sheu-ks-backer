@@ -23,7 +23,7 @@ export default (app) => {
 				return moment(Goodstypesrelation.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'goodstypesrelation',
 		timestamps: false,
@@ -32,8 +32,7 @@ export default (app) => {
 	Goodstypesrelation.associate = () => {
 		// Goodstypesrelation.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Goodstypesrelation.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Goodstypesrelation;
 };
-

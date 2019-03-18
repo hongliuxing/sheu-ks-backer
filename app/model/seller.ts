@@ -62,7 +62,7 @@ export default (app) => {
 		},
 		school_id: {
 			type: DataTypes.INTEGER,
-		}
+		},
 	}, {
 		tableName: 'seller',
 		timestamps: false,
@@ -72,8 +72,7 @@ export default (app) => {
 		Seller.hasMany(app.model.Goods, { foreignKey: 'id', targetKey: 'seller_id' } );
 		// Seller.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Seller.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Seller;
 };
-

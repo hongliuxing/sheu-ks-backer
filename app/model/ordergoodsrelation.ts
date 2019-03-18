@@ -26,7 +26,7 @@ export default (app) => {
 				return moment(Ordergoodsrelation.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'ordergoodsrelation',
 		timestamps: false,
@@ -36,8 +36,7 @@ export default (app) => {
 		Ordergoodsrelation.belongsTo(app.model.Goods, { foreignKey: 'goods_id', targetKey: 'id', as: 'goods' } );
 		// Ordergoodsrelation.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Ordergoodsrelation.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Ordergoodsrelation;
 };
-

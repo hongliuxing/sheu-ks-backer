@@ -61,8 +61,7 @@ export default (app) => {
 		Knight.hasMany(app.model.RushKnight, { foreignKey: 'id', targetKey: 'knight_id' } );
 		// Knight.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Knight.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Knight;
 };
-

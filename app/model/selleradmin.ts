@@ -44,7 +44,7 @@ export default (app) => {
 				return moment(Selleradmin.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'selleradmin',
 		timestamps: false,
@@ -53,8 +53,7 @@ export default (app) => {
 	Selleradmin.associate = () => {
 		// Selleradmin.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Selleradmin.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Selleradmin;
 };
-

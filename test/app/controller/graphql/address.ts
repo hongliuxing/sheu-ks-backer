@@ -14,7 +14,7 @@ const obj = {
 	school_area: '宿舍', // 学校区域(可自定义,宿舍、图书馆、公园、教室、居民楼等)
 	detail: '男生宿舍29号楼3楼29303', // 详细地址
 	is_default: 1, // 是否是默认地址( 0 不是, 1 是默认地址)
-	created: '2010-10-11 20:31', // 
+	created: '2010-10-11 20:31', //
 };
 
 export const find = async () => {
@@ -32,7 +32,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -48,7 +48,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -64,7 +64,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -80,7 +80,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -96,4 +96,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

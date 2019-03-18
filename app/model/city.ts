@@ -17,7 +17,7 @@ export default (app) => {
 		},
 		provincecode: {
 			type: DataTypes.STRING,
-		}
+		},
 	}, {
 		tableName: 'city',
 		timestamps: false,
@@ -26,8 +26,7 @@ export default (app) => {
 	City.associate = () => {
 		// City.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// City.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return City;
 };
-

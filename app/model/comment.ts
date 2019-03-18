@@ -38,7 +38,7 @@ export default (app) => {
 				return moment(Comment.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'comment',
 		timestamps: false,
@@ -47,8 +47,7 @@ export default (app) => {
 	Comment.associate = () => {
 		// Comment.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Comment.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Comment;
 };
-

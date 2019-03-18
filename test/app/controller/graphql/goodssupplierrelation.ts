@@ -37,7 +37,7 @@ export const find = async (goods_id, supplier_id) => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async (where) => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -65,7 +65,7 @@ export const findAll = async (where) => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 
 export const remainingAll = async (supplier_id, channel_id) => {
 	it('should HTTP /findAll', async () => {
@@ -88,7 +88,7 @@ export const remainingAll = async (supplier_id, channel_id) => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 
 export const add = async () => {
 	it('should HTTP /add', async () => {
@@ -105,7 +105,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		// const q1 = `mutation{
@@ -122,7 +122,7 @@ export const update = async () => {
 				}){
 				err, msg, desc, info
 			}
-		}`
+		}`;
 
 		try {
 			const res: any = await httpUtil.toPost(q1);
@@ -131,7 +131,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -147,4 +147,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

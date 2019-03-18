@@ -53,8 +53,7 @@ export default (app) => {
 	Client.associate = () => {
 		// Client.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Client.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Client;
 };
-

@@ -30,7 +30,7 @@ export default (app) => {
 				return moment(RushGoods.getDataValue('updateAt')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'rush_goods',
 		timestamps: false,
@@ -39,8 +39,7 @@ export default (app) => {
 	RushGoods.associate = () => {
 		// RushGoods.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// RushGoods.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return RushGoods;
 };
-

@@ -18,7 +18,7 @@ export default (app) => {
         //     app.lastUpdateBy = data;
         // });
         app.logger.info('======== 【扩展类型定时任务】: 3. 当前 gzhAccessToken: %s', app.gzhAccessToken);
-        if(!data) return;
+        if (!data) return;
         app.gzhAccessToken = data;
     });
     // Force HTTPS on all page

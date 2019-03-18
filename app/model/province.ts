@@ -14,7 +14,7 @@ export default (app) => {
 		},
 		name: {
 			type: DataTypes.STRING,
-		}
+		},
 	}, {
 		tableName: 'province',
 		timestamps: false,
@@ -23,8 +23,7 @@ export default (app) => {
 	Province.associate = () => {
 		// Province.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Province.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Province;
 };
-

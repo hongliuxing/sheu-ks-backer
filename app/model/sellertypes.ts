@@ -26,7 +26,7 @@ export default (app) => {
 				return moment(Sellertypes.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'sellertypes',
 		timestamps: false,
@@ -35,8 +35,7 @@ export default (app) => {
 	Sellertypes.associate = () => {
 		// Sellertypes.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Sellertypes.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Sellertypes;
 };
-

@@ -15,7 +15,7 @@ const obj = {
 	school_id: 'school_id_value', // 骑手对应的学校id
 	gender: 9, // 1男神 0女神
 	struts: 3, // 状态（0 未审核  1 已审核）
-	created: '203.8613217925330146-8.96677051983864-0.4292755956668062 21.339315526164395:11.392467840195701:1.9282680396552587', // 
+	created: '203.8613217925330146-8.96677051983864-0.4292755956668062 21.339315526164395:11.392467840195701:1.9282680396552587', //
 };
 
 export const find = async () => {
@@ -33,7 +33,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -56,7 +56,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 
 export const screenRushKnightAll = async () => {
 	it('should HTTP /screenRushKnightAll', async () => {
@@ -78,10 +78,10 @@ export const screenRushKnightAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 
 /**
- * 
+ *
  */
 export const add = async () => {
 	it('should HTTP /add', async () => {
@@ -98,7 +98,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -114,7 +114,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -130,4 +130,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

@@ -14,7 +14,7 @@ export default () => {
         public async index() {
             const {ctx} = this;
 
-            const {query=''} = ctx.query;
+            const {query= ''} = ctx.query;
             console.log( 'ctx.query => ', query );
 
             // const query = JSON.stringify({
@@ -33,4 +33,4 @@ export default () => {
     }
 
     return GqlactivityController;
-}
+};

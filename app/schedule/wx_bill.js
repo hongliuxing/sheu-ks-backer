@@ -2,7 +2,7 @@
  * 用于描述与活动相关的定时任务
  * 兜底方案一：每10分钟刷新活动数据
  */
-const fs = require('fs');
+// const fs = require('fs');
 
 
 
@@ -16,19 +16,19 @@ module.exports = {
 
     async task(ctx) {
 
-        try {
-            const sheuUsers = await ctx.model.SheuUser.findAll({});
-            // console.log('〓〓〓〓 获取公众号用户列表... ', sheuUsers);
-            const userMap = new Map();
-            if (Array.isArray(sheuUsers)) {
-                sheuUsers.forEach((user) => {
-                    userMap.set(user.openid, user.unionid);
-                });
-            }
-            ctx.app.sheuUsersMap = userMap;
-        } catch (err) {
-            ctx.logger.error(err);
-        }
+        // try {
+        //     const sheuUsers = await ctx.model.SheuUser.findAll({});
+        //     // console.log('〓〓〓〓 获取公众号用户列表... ', sheuUsers);
+        //     const userMap = new Map();
+        //     if (Array.isArray(sheuUsers)) {
+        //         sheuUsers.forEach((user) => {
+        //             userMap.set(user.openid, user.unionid);
+        //         });
+        //     }
+        //     ctx.app.sheuUsersMap = userMap;
+        // } catch (err) {
+        //     ctx.logger.error(err);
+        // }
 
     },
 }

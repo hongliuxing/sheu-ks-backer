@@ -10,7 +10,7 @@ const config = {
         appSecret: 'a864a627dcfbcc51cb5622d322edf8cf',  //填写你自己的appSecret
         EncodingAESKey: 'tZHiMcrZdPfVxjO717QQvg7fHMj0OjgUG6hHcKweqBD',
         token: 'sheyou',  //填写你自己的token
-    }
+    },
 };
 
 export default class GlobalSupportController extends BaseController {
@@ -23,15 +23,15 @@ export default class GlobalSupportController extends BaseController {
     public async getSheuGZHIn() {
         const { ctx } = this;
 
-        var token = config.wechat.token;
+        const token = config.wechat.token;
         console.log('微信接入 ====> ', ctx.query);
-        var signature = ctx.query.signature;
-        var nonce = ctx.query.nonce;
-        var timestamp = ctx.query.timestamp;
-        var echostr = ctx.query.echostr;
-        var str = [token, timestamp, nonce].sort().join(''); //按字典排序，拼接字符串
+        const signature = ctx.query.signature;
+        const nonce = ctx.query.nonce;
+        const timestamp = ctx.query.timestamp;
+        const echostr = ctx.query.echostr;
+        const str = [token, timestamp, nonce].sort().join(''); //按字典排序，拼接字符串
         console.log('微信排序拼接字符串: ', str);
-        var sha = sha1(str); //加密
+        const sha = sha1(str); //加密
         ctx.body = (sha === signature) ? echostr + '' : 'failed';  //比较并返回结果
     }
 
@@ -48,7 +48,7 @@ export default class GlobalSupportController extends BaseController {
 
         let msg = {};
         const accessToken = ctx.app['gzhAccessToken'];
-        if(!accessToken){
+        if (!accessToken){
             msg = {
                 err : 9527,
                 data: 'accessToken无效',

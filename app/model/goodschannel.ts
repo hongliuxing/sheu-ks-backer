@@ -29,7 +29,7 @@ export default (app) => {
 				return moment(Goodschannel.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'goodschannel',
 		timestamps: false,
@@ -39,8 +39,7 @@ export default (app) => {
 		Goodschannel.hasMany(app.model.Goods, { foreignKey: 'id', targetKey: 'channel_id' } );
 		// Goodschannel.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Goodschannel.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Goodschannel;
 };
-

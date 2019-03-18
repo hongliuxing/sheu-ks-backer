@@ -23,7 +23,7 @@ const obj = {
 	client_refund_reason: 'client_refund_reason_value', // 客户申请退费理由
 	seller_refund_time: '202.764839063775546-9.200169169176533-6.756093757018209 7.94749448728478:24.306718466455692:48.96721048411051', // 商家确定退费时间
 	refund_finish_time: '202.627485132271903-8.628523810201383-2.0568043020503533 18.779032829362027:20.818239780711167:7.285748059057928', // 客户退费到账时间
-	created: '2015.532157408269454-2.733595737248179-0.5320100015451743 6.972222742451043:21.53268287797285:38.45873887443413', // 
+	created: '2015.532157408269454-2.733595737248179-0.5320100015451743 6.972222742451043:21.53268287797285:38.45873887443413', //
 	modify_time: '2018.383513768531763-11.657359850513917-9.945543675569592 16.43230586123522:58.46125318738566:30.69324170624238', // 状态数据修改时间(乐观锁)
 };
 
@@ -42,7 +42,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -58,7 +58,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -74,7 +74,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -90,7 +90,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -106,4 +106,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

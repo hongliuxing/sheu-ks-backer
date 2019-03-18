@@ -80,8 +80,7 @@ export default (app) => {
 		Goods.belongsTo(app.model.Seller, { foreignKey: 'seller_id', targetKey: 'id' } );
 		// Goods.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Goods.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Goods;
 };
-

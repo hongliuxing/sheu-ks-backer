@@ -29,7 +29,7 @@ export default (app) => {
 				return moment(RushKnight.getDataValue('createAt')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'rush_knight',
 		timestamps: false,
@@ -39,8 +39,7 @@ export default (app) => {
 		RushKnight.belongsTo(app.model.Knight, { foreignKey: 'knight_id', targetKey: 'id' } );
 		// RushKnight.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } ); // Knight
 		// RushKnight.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return RushKnight;
 };
-

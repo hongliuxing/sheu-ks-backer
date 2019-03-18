@@ -74,8 +74,7 @@ export default (app) => {
 	Supplier.associate = () => {
 		Supplier.belongsTo(app.model.Dormitorysupplierrelation, { foreignKey: 'id', targetKey: 'suppli_id' } );
 		// Supplier.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Supplier;
 };
-

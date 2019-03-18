@@ -57,7 +57,7 @@ export default (app) => {
 				return moment(RushActivity.getDataValue('createAt')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'rush_activity',
 		timestamps: false,
@@ -66,8 +66,7 @@ export default (app) => {
 	RushActivity.associate = () => {
 		// RushActivity.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// RushActivity.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return RushActivity;
 };
-

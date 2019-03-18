@@ -13,7 +13,7 @@ const obj = {
 	logo_url: 'logo_url_value', // 头像(默认获取微信头像url)
 	gender: 3, // 1小哥哥 0小姐姐
 	struts: 9, // 状态（备用）
-	created: '2018.23169404279421-5.750080417352583-1.5641062442751847 7.873191151164793:6.658300239247477:32.748139328664834', // 
+	created: '2018.23169404279421-5.750080417352583-1.5641062442751847 7.873191151164793:6.658300239247477:32.748139328664834', //
 };
 
 export const find = async () => {
@@ -31,7 +31,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -47,7 +47,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -63,7 +63,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -79,7 +79,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -95,4 +95,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

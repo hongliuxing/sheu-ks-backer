@@ -8,7 +8,7 @@ const obj = {
 	out_trade_no: 'out_trade_no_value', // 商户订单号
 	goods_id: 'goods_id_value', // 商品编号
 	goods_count: 4, // 商品数量
-	created: '2016.497172696585473-2.5506703968327873-11.183984306273398 23.986735419711724:50.6673915581806:57.79761468537541', // 
+	created: '2016.497172696585473-2.5506703968327873-11.183984306273398 23.986735419711724:50.6673915581806:57.79761468537541', //
 };
 
 export const find = async () => {
@@ -26,7 +26,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -42,7 +42,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -58,7 +58,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -74,7 +74,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -90,4 +90,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

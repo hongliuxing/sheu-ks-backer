@@ -33,7 +33,7 @@ export default (app) => {
 				return moment(Goodssupplierrelation.getDataValue('create_time')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'goodssupplierrelation',
 		timestamps: false,
@@ -44,8 +44,7 @@ export default (app) => {
 		Goodssupplierrelation.belongsTo(app.model.Goods, { foreignKey: 'goods_id', targetKey: 'id', as: 'goods' } );
 		Goodssupplierrelation.belongsTo(app.model.Supplier, { foreignKey: 'supplier_id', targetKey: 'id' } );
 		// Goodssupplierrelation.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Goodssupplierrelation;
 };
-

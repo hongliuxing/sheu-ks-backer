@@ -126,7 +126,7 @@ export default (app) => {
 				return moment(Orderstruts.getDataValue('modify_time')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'orderstruts',
 		timestamps: false,
@@ -135,8 +135,7 @@ export default (app) => {
 	Orderstruts.associate = () => {
 		// Orderstruts.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Orderstruts.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Orderstruts;
 };
-

@@ -17,7 +17,7 @@ export default (app) => {
 		},
 		citycode: {
 			type: DataTypes.STRING,
-		}
+		},
 	}, {
 		tableName: 'area',
 		timestamps: false,
@@ -26,8 +26,7 @@ export default (app) => {
 	Area.associate = () => {
 		// Area.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Area.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Area;
 };
-

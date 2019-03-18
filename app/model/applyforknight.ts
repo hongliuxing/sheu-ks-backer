@@ -48,7 +48,7 @@ export default (app) => {
 				return moment(Applyforknight.getDataValue('check_time')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'applyforknight',
 		timestamps: false,
@@ -57,8 +57,7 @@ export default (app) => {
 	Applyforknight.associate = () => {
 		// Applyforknight.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Applyforknight.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Applyforknight;
 };
-

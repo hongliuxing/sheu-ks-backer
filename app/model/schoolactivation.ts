@@ -14,7 +14,7 @@ export default (app) => {
 		},
 		state: {
 			type: DataTypes.INTEGER,
-		}
+		},
 	}, {
 		tableName: 'schoolactivation',
 		timestamps: false,
@@ -23,8 +23,7 @@ export default (app) => {
 	Schoolactivation.associate = () => {
 		// Schoolactivation.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Schoolactivation.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Schoolactivation;
 };
-

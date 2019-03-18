@@ -8,7 +8,7 @@ const obj = {
 	ctype: 'ctype_value', // 类型名称
 	clevel: 1, // 类型级别
 	struts: 5, // 状态
-	created: '206.519667838235628-0.6993016225157493-20.701728735064528 4.475825793832916:30.41101481369751:8.891273808482726', // 
+	created: '206.519667838235628-0.6993016225157493-20.701728735064528 4.475825793832916:30.41101481369751:8.891273808482726', //
 };
 
 export const find = async () => {
@@ -26,7 +26,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -42,7 +42,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -58,7 +58,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -74,7 +74,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -90,4 +90,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

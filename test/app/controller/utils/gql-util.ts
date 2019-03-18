@@ -15,21 +15,21 @@
  * 	  3.1 函数/空值(null或undefined)会被忽略;
  * 	  3.2 如果数组元素依然是一个普通对象或数组对象, 则会继续递归解析;
  */
-function spreadToString(this:any, hasWrap) {
-    "use strict"; // 严格模式可避免 this 做自动转型
+function spreadToString(this: any, hasWrap) {
+    'use strict'; // 严格模式可避免 this 做自动转型
     if (hasWrap === undefined) {
         // 如果参数 hasWrap 未传递参数, 默认赋值为 true
         hasWrap = true;
     }
-    // 非严格模式下, 如果调用者是一个简单值, 则通过 this 关键字将得到该值装箱后的对象, 
+    // 非严格模式下, 如果调用者是一个简单值, 则通过 this 关键字将得到该值装箱后的对象,
     // 如数值 29 会被转换为 new Number(29)
     const self = this;
 
     if (Array.isArray(self)) {
         // 如果当前值是数组,则以数组的方式进行解析
         return `[${self
-            .filter(ele => !(typeof ele === 'function' || ele == null)) // 过滤函数及空值
-            .map(ele => spreadToString.call(ele, true)) // 递归调用 spreadField 函数
+            .filter((ele) => !(typeof ele === 'function' || ele == null)) // 过滤函数及空值
+            .map((ele) => spreadToString.call(ele, true)) // 递归调用 spreadField 函数
             .join(',') // 将数组元素通过逗号分隔, 合并成新的字符串
             }]`;
     } else if (self != null && typeof self === 'object') {
@@ -40,7 +40,7 @@ function spreadToString(this:any, hasWrap) {
         }
         // 如果当前的 self 是对象 (规避 null 通过 typeof 判断结果是"object"的问题)
         return `${prefix}${Object.keys(self)
-            .filter(key => !(typeof self[key] === 'function' || self[key] == null)) // 过滤函数及空值
+            .filter((key) => !(typeof self[key] === 'function' || self[key] == null)) // 过滤函数及空值
             .map((key) => {
                 // 属性不是对象自身的属性,则忽略
                 if (!self.hasOwnProperty(key)) return '';

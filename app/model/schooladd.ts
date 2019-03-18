@@ -23,7 +23,7 @@ export default (app) => {
 		},
 		name: {
 			type: DataTypes.STRING,
-		}
+		},
 	}, {
 		tableName: 'schooladd',
 		timestamps: false,
@@ -32,8 +32,7 @@ export default (app) => {
 	Schooladd.associate = () => {
 		// Schooladd.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Schooladd.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Schooladd;
 };
-

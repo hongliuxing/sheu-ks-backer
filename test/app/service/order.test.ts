@@ -50,7 +50,7 @@
 //     //   }
 // 		// }];
 //     // const data2 = await Order.findAll({
-//     //   include, 
+//     //   include,
 //     // });
 //     // const willpayorders = await ctx.model.query(
 //     //   'CALL proc_filter_order_disabled();'
@@ -69,7 +69,6 @@
 //     //   }
 //     // }
 
-
 //     let out_trade_no = 'df80efebc9584bc58b4c772b403ce410';
 //     let out_result = 0;
 //     const closeOrderRes = await ctx.model.query('CALL proc_goods_repertory_change($$1,$$2,$$3);', {
@@ -78,8 +77,6 @@
 //     });
 //     console.log(out_trade_no, out_result, closeOrderRes);
 
-
-    
 //     // WechatUtils.queryOrderquery(out_trade_no);
 
 //     // const data = await ctx.model.Student.findAll({raw: true});

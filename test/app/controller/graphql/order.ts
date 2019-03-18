@@ -18,13 +18,13 @@ const obj = {
 	total_fee: 38.71, // 订单总金额(单位是"分")
 	goods_detail: 'goods_detail_value', // 备注详情(预售订单创建之后,只有备注可修改)
 	remark: 'remark_value', // 备注详情(预售订单创建之后,只有备注可修改)
-	created: '2019.17105386274737-9.894542803415778-15.595100612319314 2.3065749521099796:17.13761870828588:44.25810671806788', // 
-	school_id: 'school_id_value', // 
-	realname: 'realname_value', // 
-	gender: 8, // 
-	mobile: 'mobile_value', // 
-	school_area: 'school_area_value', // 
-	detail: 'detail_value', // 
+	created: '2019.17105386274737-9.894542803415778-15.595100612319314 2.3065749521099796:17.13761870828588:44.25810671806788', //
+	school_id: 'school_id_value', //
+	realname: 'realname_value', //
+	gender: 8, //
+	mobile: 'mobile_value', //
+	school_area: 'school_area_value', //
+	detail: 'detail_value', //
 };
 
 export const find = async () => {
@@ -42,7 +42,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -58,7 +58,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -74,7 +74,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -90,7 +90,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -106,4 +106,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

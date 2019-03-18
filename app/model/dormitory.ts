@@ -17,7 +17,7 @@ export default (app) => {
 		},
 		school_id: {
 			type: DataTypes.INTEGER,
-		}
+		},
 	}, {
 		tableName: 'dormitory',
 		timestamps: false,
@@ -26,8 +26,7 @@ export default (app) => {
 	Dormitory.associate = () => {
 		Dormitory.belongsTo(app.model.Dormitorysupplierrelation, { foreignKey: 'id', targetKey: 'dorm_id' } );
 		// Dormitory.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Dormitory;
 };
-

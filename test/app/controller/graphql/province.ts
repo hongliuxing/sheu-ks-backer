@@ -4,9 +4,9 @@ import * as httpUtil from '../utils/base';
 import {spread} from '../utils/gql-util';
 
 const obj = {
-	id: uuidv1(), // 
-	code: 'code_value', // 
-	name: 'name_value', // 
+	id: uuidv1(), //
+	code: 'code_value', //
+	name: 'name_value', //
 };
 
 export const find = async () => {
@@ -24,7 +24,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -40,7 +40,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -56,7 +56,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -72,7 +72,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -88,4 +88,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

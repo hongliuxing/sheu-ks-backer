@@ -35,7 +35,7 @@ export default class AccessService extends BaseService {
             console.log('【partnerLogin openid】=> ', openid);
 
             const token = new Token();
-            if(!partner){
+            if (!partner){
                 return new Message(ErrorType.PHONE_NOT_FOUND, {
                     openidToken: token.createToken({ id: openid }),
                     openid,
@@ -60,7 +60,7 @@ export default class AccessService extends BaseService {
             const {ctx} = this;
             const where = { telephone };
             const partner = await ctx.model.Partner.findOne({ where, raw: true });
-            if(!partner){
+            if (!partner){
                 // 权限不足以注册
                 return new Message(ErrorType.UNKNOW_ERROR, '权限不足以注册合伙人!');
             }
@@ -84,8 +84,8 @@ export default class AccessService extends BaseService {
 
     /**
      * 合伙人认证注册
-     * @param telephone 
-     * @param code 
+     * @param telephone
+     * @param code
      */
     public async partnerRegister(telephone: string, code: string, smsToken: string, openid: string) {
         try {
@@ -106,7 +106,7 @@ export default class AccessService extends BaseService {
             };
             const result = await ctx.model.Partner.update(values, options);
             const affected_rows = result[0]; // 更新返回影响行数
-            if(affected_rows > 0){
+            if (affected_rows > 0){
                 // 查询并返回当前登录用户
                 const include = [ctx.model.School];
                 const partner = await ctx.model.Partner.findOne({

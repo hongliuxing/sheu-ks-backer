@@ -33,7 +33,7 @@ export default (app) => {
 				return moment(Mapknighttemp.getDataValue('modify_time')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'mapknighttemp',
 		timestamps: false,
@@ -42,8 +42,7 @@ export default (app) => {
 	Mapknighttemp.associate = () => {
 		// Mapknighttemp.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Mapknighttemp.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Mapknighttemp;
 };
-

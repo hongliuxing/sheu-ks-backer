@@ -39,7 +39,7 @@ export default (app) => {
 				return moment(Supplierinoutgoods.getDataValue('modify_time')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'supplierinoutgoods',
 		timestamps: false,
@@ -48,8 +48,7 @@ export default (app) => {
 	Supplierinoutgoods.associate = () => {
 		// Supplierinoutgoods.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Supplierinoutgoods.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Supplierinoutgoods;
 };
-

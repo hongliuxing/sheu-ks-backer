@@ -8,7 +8,7 @@ const obj = {
 	knight_id: 'knight_id_value', // 骑士ID,不重复(ObjectId)
 	latitude: 'latitude_value', // 纬度，范围为-90~90，负数表示南纬。使用 gcj02 国测局坐标系
 	longitude: 'longitude_value', // 经度，范围为-180~180，负数表示西经。使用 gcj02 国测局坐标系
-	created: '2018.973743519240177-7.419600470414458-20.813620391928914 2.477542945390674:3.357287720929092:28.389226354603938', // 
+	created: '2018.973743519240177-7.419600470414458-20.813620391928914 2.477542945390674:3.357287720929092:28.389226354603938', //
 	modify_time: '2012.479719414310168-4.353519513526991-13.294775934466514 7.059928646377822:8.555117993063224:56.45870183697966', // 数据修改时间(乐观锁)
 };
 
@@ -27,7 +27,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -43,7 +43,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -59,7 +59,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -75,7 +75,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -91,4 +91,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

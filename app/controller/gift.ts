@@ -21,7 +21,7 @@ export default class GiftController extends BaseController {
      * 获取已激活的赛季详细数据
      * 接口: /gift/active-info
      * 参数:
-     *      
+     *
      * 返回数据:
      *
      */
@@ -34,7 +34,7 @@ export default class GiftController extends BaseController {
      * 获取历史赛季详细数据
      * 接口: /gift/history-list
      * 参数:
-     *      
+     *
      * 返回数据:
      *
      */

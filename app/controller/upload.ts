@@ -31,5 +31,4 @@ export default class UploadController extends BaseController {
         this.common_sign( dir );
     }
 
-
 }

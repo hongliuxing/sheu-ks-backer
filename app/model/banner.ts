@@ -26,7 +26,7 @@ export default (app) => {
 				return moment(Banner.getDataValue('createAt')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'banner',
 		timestamps: false,
@@ -35,8 +35,7 @@ export default (app) => {
 	Banner.associate = () => {
 		// Banner.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Banner.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Banner;
 };
-

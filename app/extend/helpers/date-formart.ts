@@ -8,7 +8,7 @@ export const formartDateTime = (originDate: string | Date = new Date(), hasTime:
     }
     // get originDate's yyyy-MM-dd
     const fDate = [
-        originDate.getFullYear(), originDate.getMonth() + 1, originDate.getDate()
+        originDate.getFullYear(), originDate.getMonth() + 1, originDate.getDate(),
     ];
     // 如果需要对时间进行格式化, 则获取时间部分
     const fTime = hasTime ? [ originDate.getHours(), originDate.getMinutes(), originDate.getSeconds() ] : [];
@@ -18,4 +18,4 @@ export const formartDateTime = (originDate: string | Date = new Date(), hasTime:
     const timeText = fTime.map( formatText ).join(':');
     // 拼接并返回结果
     return dateText.concat(hasTime ? ' ' + timeText : '');
-}
+};

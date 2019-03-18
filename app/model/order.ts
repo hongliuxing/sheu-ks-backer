@@ -93,8 +93,7 @@ export default (app) => {
 
 		Order.hasMany(app.model.Ordergoodsrelation, { foreignKey: 'out_trade_no', targetKey: 'out_trade_no' } );
 		// Order.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Order;
 };
-

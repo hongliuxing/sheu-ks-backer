@@ -59,7 +59,7 @@ export default (app) => {
 				return moment(SheuUser.getDataValue('createAt')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'sheu_user',
 		timestamps: false,
@@ -68,8 +68,7 @@ export default (app) => {
 	SheuUser.associate = () => {
 		// SheuUser.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// SheuUser.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return SheuUser;
 };
-

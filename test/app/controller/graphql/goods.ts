@@ -16,7 +16,7 @@ const obj = {
 	discount_price: 17.97, // 折扣后金额
 	priority: 0, // 优先级
 	struts: 6, // 状态
-	created: '2010.14365672232595-10.717390605992811-24.964498261438884 1.381756524433225:10.089147009072143:21.857115688642196', // 
+	created: '2010.14365672232595-10.717390605992811-24.964498261438884 1.381756524433225:10.089147009072143:21.857115688642196', //
 };
 
 export const find = async () => {
@@ -34,7 +34,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -50,7 +50,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -66,7 +66,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -82,7 +82,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -98,4 +98,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

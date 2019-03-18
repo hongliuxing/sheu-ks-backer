@@ -8,7 +8,7 @@ const obj = {
 	author_id: 'author_id_value', // 作者编号
 	title: 'title_value', // 标签名称
 	struts: 1, // 状态
-	created: '207.029811975653031-11.56799805425003-19.74671423110462 21.186252950809738:4.805759433890677:36.74920305142298', // 
+	created: '207.029811975653031-11.56799805425003-19.74671423110462 21.186252950809738:4.805759433890677:36.74920305142298', //
 };
 
 export const find = async () => {
@@ -26,7 +26,7 @@ export const find = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const findAll = async () => {
 	it('should HTTP /findAll', async () => {
 		const q1 = `query={
@@ -42,7 +42,7 @@ export const findAll = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const add = async () => {
 	it('should HTTP /add', async () => {
 		const q1 = `mutation{
@@ -58,7 +58,7 @@ export const add = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const update = async () => {
 	it('should HTTP /update', async () => {
 		const q1 = `mutation{
@@ -74,7 +74,7 @@ export const update = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};
 export const remove = async () => {
 	it('should HTTP /remove', async () => {
 		const q1 = `mutation{
@@ -90,4 +90,4 @@ export const remove = async () => {
 			console.log('/graphql try->catch ::', err);
 		}
 	});
-}
+};

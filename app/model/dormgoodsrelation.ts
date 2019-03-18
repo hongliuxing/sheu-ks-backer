@@ -33,7 +33,7 @@ export default (app) => {
 				return moment(Dormgoodsrelation.getDataValue('modify_time')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'dormgoodsrelation',
 		timestamps: false,
@@ -42,8 +42,7 @@ export default (app) => {
 	Dormgoodsrelation.associate = () => {
 		// Dormgoodsrelation.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Dormgoodsrelation.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Dormgoodsrelation;
 };
-

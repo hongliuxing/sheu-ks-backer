@@ -44,7 +44,7 @@ export default (app) => {
 				return moment(Address.getDataValue('created')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'address',
 		timestamps: false,
@@ -53,8 +53,7 @@ export default (app) => {
 	Address.associate = () => {
 		// Address.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Address.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Address;
 };
-

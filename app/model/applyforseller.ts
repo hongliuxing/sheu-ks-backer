@@ -57,7 +57,7 @@ export default (app) => {
 				return moment(Applyforseller.getDataValue('check_time')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'applyforseller',
 		timestamps: false,
@@ -66,8 +66,7 @@ export default (app) => {
 	Applyforseller.associate = () => {
 		// Applyforseller.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// Applyforseller.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Applyforseller;
 };
-

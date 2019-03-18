@@ -28,10 +28,9 @@
 //     return modelSchema;
 // }
 
-
 // function getDefaultAttributes(options: object, sequelize: SequelizeStatic): object {
 //     const { DATE } = sequelize;
-  
+
 //     const defaultAttributes = {
 //       created_at: {
 //         type: DATE,
@@ -46,10 +45,10 @@
 //         },
 //       },
 //     };
-  
+
 //     // 需要从 options 读取的配置信息，用于下方做过滤的条件
 //     const attributes = ['createdAt', 'updatedAt', 'deletedAt'];
-  
+
 //     Object.keys(options).forEach((value: string) => {
 //       if (attributes.includes(value) && (options as any)[value] === false) {
 //         delete (defaultAttributes as any)[snakeCase(value)];

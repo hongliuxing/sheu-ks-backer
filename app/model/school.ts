@@ -38,7 +38,7 @@ export default (app) => {
 		},
 		district_code: {
 			type: DataTypes.STRING,
-		}
+		},
 	}, {
 		tableName: 'school',
 		timestamps: false,
@@ -47,8 +47,7 @@ export default (app) => {
 	School.associate = () => {
 		// School.belongsTo(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
 		// School.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return School;
 };
-

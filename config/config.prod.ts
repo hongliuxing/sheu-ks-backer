@@ -1,4 +1,4 @@
-import { EggAppConfig, PowerPartial, EggAppInfo } from 'egg';
+import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
 export default (appInfo: EggAppInfo) => {
 

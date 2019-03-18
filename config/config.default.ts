@@ -1,5 +1,5 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
-let path = require('path');
+const path = require('path');
 
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
@@ -137,7 +137,7 @@ export default (appInfo: EggAppInfo) => {
     agent: false,
     // 是否加载开发者工具 graphiql, 默认开启。路由同 router 字段。使用浏览器打开该可见。
     graphiql: true,
-  }
+  };
 
   // config.assets = {
   //   templatePath: path.join(appInfo.baseDir, 'app/view/template.html'),

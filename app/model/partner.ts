@@ -47,7 +47,7 @@ export default (app) => {
 				return moment(Partner.getDataValue('createAt')).format('YYYY-MM-DD HH:mm:ss');
 			},
 			defaultValue: DataTypes.NOW,
-		}
+		},
 	}, {
 		tableName: 'partner',
 		timestamps: false,
@@ -56,8 +56,7 @@ export default (app) => {
 	Partner.associate = () => {
 		Partner.belongsTo(app.model.School, { foreignKey: 'school_id', targetKey: 'sid' } );
 		// Partner.hasMany(app.model.OtherModel, { foreignKey: 'foreignKey_id', targetKey: 'id' } );
-	}
-	
+	};
+
 	return Partner;
 };
-

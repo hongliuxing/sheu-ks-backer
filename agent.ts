@@ -44,4 +44,4 @@ export default (agent) => {
 
     // const subscriber = new Subscriber();
 
-}
+};
